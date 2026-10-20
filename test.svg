@@ -1,0 +1,181 @@
+<svg xmlns="http://w3.org" viewBox="0 0 400 500" width="100%" height="100%" style="background: #111; font-family: sans-serif; user-select: none;">
+    <style>
+        .ui-text { font-size: 18px; font-weight: bold; fill: #fff; text-anchor: middle; }
+        #score-board { fill: #ffd700; text-anchor: start; }
+        #lives-board { fill: #ff4d4d; text-anchor: end; }
+        #title { font-size: 32px; font-weight: bold; fill: #00ffcc; text-anchor: middle; }
+        #instructions { font-size: 14px; fill: #aaa; text-anchor: middle; }
+        .btn { cursor: pointer; fill: #00ffcc; transition: transform 0.1s; }
+        .btn:hover { fill: #00ccaa; }
+        .btn-text { font-size: 18px; font-weight: bold; fill: #111; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+    </style>
+
+    <!-- Game Arena Border -->
+    <rect x="2" y="2" width="396" height="496" fill="#222" stroke="#444" stroke-width="4" rx="4"/>
+
+    <!-- UI Header -->
+    <g id="ui" transform="translate(20, 40)">
+        <text id="score-board" x="0" y="0">Score: 0</text>
+        <text id="lives-board" x="360" y="0">Lives: 3</text>
+    </g>
+
+    <!-- Game Elements Container -->
+    <g id="game-objects">
+        <rect id="paddle" x="160" y="455" width="80" height="15" fill="#00ffcc" rx="2"/>
+    </g>
+
+    <!-- Start / Game Over Overlay -->
+    <g id="overlay">
+        <rect x="0" y="0" width="400" height="500" fill="rgba(0,0,0,0.85)"/>
+        <text id="title" x="200" y="180">BLOCK CATCHER</text>
+        <text id="instructions" x="200" y="230">
+            <tspan x="200" dy="0">Use Left/Right Arrows or A/D keys to move.</tspan>
+            <tspan x="200" dy="22">Catch golden blocks (+10). Avoid red blocks (-1 life).</tspan>
+        </text>
+        <g id="start-btn" class="btn" transform="translate(140, 300)" onclick="startGame()">
+            <rect width="120" height="45" rx="4"/>
+            <text class="btn-text" x="60" y="22.5">PLAY</text>
+        </g>
+    </g>
+
+    <script type="text/javascript">
+        <![CDATA[
+        const svg = document.documentElement;
+        const paddle = document.getElementById('paddle');
+        const scoreBoard = document.getElementById('score-board');
+        const livesBoard = document.getElementById('lives-board');
+        const gameObjects = document.getElementById('game-objects');
+        const overlay = document.getElementById('overlay');
+        const titleEl = document.getElementById('title');
+        const btnText = document.querySelector('.btn-text');
+
+        let score = 0;
+        let lives = 3;
+        let gameActive = false;
+        let items = [];
+        let spawnTimer = 0;
+        let spawnRate = 60;
+        let gameSpeed = 1;
+        let animationFrameId;
+
+        const paddleData = { x: 160, y: 455, width: 80, height: 15, speed: 7 };
+        const keys = { right: false, left: false };
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = true;
+            if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = true;
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = false;
+            if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = false;
+        });
+
+        function spawnItem() {
+            const types = ['good', 'good', 'bad'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            const size = 20;
+            const x = Math.random() * (400 - size - 4) + 2;
+
+            const rect = document.createElementNS('http://w3.org', 'rect');
+            rect.setAttribute('x', x);
+            rect.setAttribute('y', -size);
+            rect.setAttribute('width', size);
+            rect.setAttribute('height', size);
+            rect.setAttribute('fill', type === 'good' ? '#ffd700' : '#ff4d4d');
+            rect.setAttribute('rx', '2');
+            gameObjects.appendChild(rect);
+
+            items.push({
+                element: rect,
+                x: x,
+                y: -size,
+                size: size,
+                type: type,
+                speed: (Math.random() * 2 + 2) * gameSpeed
+            });
+        }
+
+        function startGame() {
+            // Clean up old elements
+            items.forEach(item => item.element.remove());
+            items = [];
+            
+            score = 0;
+            lives = 3;
+            gameSpeed = 1;
+            spawnRate = 60;
+            spawnTimer = 0;
+            paddleData.x = 160;
+            paddle.setAttribute('x', paddleData.x);
+            
+            scoreBoard.textContent = `Score: ${score}`;
+            livesBoard.textContent = `Lives: ${lives}`;
+            overlay.style.display = 'none';
+            gameActive = true;
+            
+            update();
+        }
+
+        function gameOver() {
+            gameActive = false;
+            cancelAnimationFrame(animationFrameId);
+            titleEl.textContent = "GAME OVER";
+            btnText.textContent = "PLAY AGAIN";
+            overlay.style.display = 'block';
+        }
+
+        function update() {
+            if (!gameActive) return;
+
+            // Move Paddle
+            if (keys.right && paddleData.x < 400 - paddleData.width - 4) paddleData.x += paddleData.speed;
+            if (keys.left && paddleData.x > 4) paddleData.x -= paddleData.speed;
+            paddle.setAttribute('x', paddleData.x);
+
+            // Spawn Handling
+            spawnTimer++;
+            if (spawnTimer >= spawnRate) {
+                spawnItem();
+                spawnTimer = 0;
+                if (spawnRate > 25) spawnRate -= 0.5;
+                gameSpeed += 0.02;
+            }
+
+            // Move and Check Items
+            for (let i = items.length - 1; i >= 0; i--) {
+                let item = items[i];
+                item.y += item.speed;
+                item.element.setAttribute('y', item.y);
+
+                // Collision
+                if (item.y + item.size >= paddleData.y && 
+                    item.y <= paddleData.y + paddleData.height &&
+                    item.x + item.size >= paddleData.x && 
+                    item.x <= paddleData.x + paddleData.width) {
+                    
+                    if (item.type === 'good') {
+                        score += 10;
+                        scoreBoard.textContent = `Score: ${score}`;
+                    } else {
+                        lives--;
+                        livesBoard.textContent = `Lives: ${lives}`;
+                        if (lives <= 0) gameOver();
+                    }
+                    item.element.remove();
+                    items.splice(i, 1);
+                    continue;
+                }
+
+                // Despawn Offscreen
+                if (item.y > 500) {
+                    item.element.remove();
+                    items.splice(i, 1);
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(update);
+        }
+        ]]>
+    </script>
+</svg>
