@@ -1,0 +1,2470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="root"
+     width="100%" height="100%" viewBox="-40 -84 1680 1024" preserveAspectRatio="xMidYMid meet">
+<title>GRIDSTORM</title>
+<desc>GRIDSTORM - a twin-stick vector shooter packed into a single SVG file. Open this file directly in a web browser to play.</desc>
+<style><![CDATA[
+svg { background:#020309; cursor:crosshair; -webkit-user-select:none; user-select:none; }
+svg.playing { cursor:none; }
+text { font-family:Consolas,Menlo,"DejaVu Sans Mono","Liberation Mono","Courier New",monospace; fill:#cfe6ff; }
+.hudBig { font-size:30px; font-weight:bold; fill:#ffffff; }
+.hudSmall { font-size:15px; fill:#7f9cd8; letter-spacing:1px; }
+.hudMid { font-size:22px; font-weight:bold; fill:#bcd4ff; letter-spacing:3px; }
+.mult { font-size:21px; font-weight:bold; fill:#c8ff4d; }
+.sub { font-size:19px; fill:#8fb0ff; letter-spacing:4px; }
+.ctl { font-size:17px; fill:#8ea7da; }
+.ctlk { font-size:17px; fill:#ffffff; font-weight:bold; }
+.banner { font-size:64px; font-weight:bold; fill:#ffffff; letter-spacing:10px; }
+.bannerSub { font-size:22px; fill:#ffd36b; letter-spacing:5px; }
+.big { font-size:84px; font-weight:bold; letter-spacing:12px; }
+.toast { font-size:18px; fill:#ffffff; letter-spacing:2px; }
+.ftext { font-size:17px; font-weight:bold; }
+.blink { animation: blink 1.1s steps(2, start) infinite; }
+@keyframes blink { to { visibility:hidden; } }
+]]></style>
+<defs>
+  <radialGradient id="bgGrad" gradientUnits="userSpaceOnUse" cx="800" cy="430" r="1100">
+    <stop offset="0" stop-color="#0d1238"/>
+    <stop offset="0.55" stop-color="#060820"/>
+    <stop offset="1" stop-color="#020309"/>
+  </radialGradient>
+  <radialGradient id="vig" gradientUnits="userSpaceOnUse" cx="800" cy="450" r="1000">
+    <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.65"/>
+  </radialGradient>
+  <linearGradient id="logoGrad" gradientUnits="userSpaceOnUse" x1="436" y1="0" x2="1164" y2="0">
+    <stop offset="0" stop-color="#2ef2ff"/>
+    <stop offset="0.5" stop-color="#8f6bff"/>
+    <stop offset="1" stop-color="#ff3dbb"/>
+  </linearGradient>
+  <filter id="bloom" filterUnits="userSpaceOnUse" x="-60" y="-60" width="1720" height="1020" color-interpolation-filters="sRGB">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+    <feGaussianBlur stdDeviation="9"/>
+  </filter>
+</defs>
+
+<rect x="-3000" y="-3000" width="7600" height="6900" fill="url(#bgGrad)"/>
+
+<g id="shake">
+  <g id="grid" fill="none" stroke-linecap="round">
+    <path id="gridMinor" stroke="#18266a" stroke-width="1" opacity="0.8" d="M0 39L40 39L80 39L120 39L160 39L200 39L240 39L280 39L320 39L360 39L400 39L440 39L480 39L520 39L560 39L600 39L640 39L680 39L720 39L760 39L800 39L840 39L880 39L920 39L960 39L1000 39L1040 39L1080 39L1120 39L1160 39L1200 39L1240 39L1280 39L1320 39L1360 39L1400 39L1440 39L1480 39L1520 39L1560 39L1600 39M0 78L40 78L80 78L120 78L160 78L200 78L240 78L280 78L320 78L360 78L400 78L440 78L480 78L520 78L560 78L600 78L640 78L680 78L720 78L760 78L800 78L840 78L880 78L920 78L960 78L1000 78L1040 78L1080 78L1120 78L1160 78L1200 78L1240 78L1280 78L1320 78L1360 78L1400 78L1440 78L1480 78L1520 78L1560 78L1600 78M0 117L40 117L80 117L120 117L160 117L200 117L240 117L280 117L320 117L360 117L400 117L440 117L480 117L520 117L560 117L600 117L640 117L680 117L720 117L760 117L800 117L840 117L880 117L920 117L960 117L1000 117L1040 117L1080 117L1120 117L1160 117L1200 117L1240 117L1280 117L1320 117L1360 117L1400 117L1440 117L1480 117L1520 117L1560 117L1600 117M0 196L40 196L80 196L120 196L160 196L200 196L240 196L280 196L320 196L360 196L400 196L440 196L480 196L520 196L560 196L600 196L640 196L680 196L720 196L760 196L800 196L840 196L880 196L920 196L960 196L1000 196L1040 196L1080 196L1120 196L1160 196L1200 196L1240 196L1280 196L1320 196L1360 196L1400 196L1440 196L1480 196L1520 196L1560 196L1600 196M0 235L40 235L80 235L120 235L160 235L200 235L240 235L280 235L320 235L360 235L400 235L440 235L480 235L520 235L560 235L600 235L640 235L680 235L720 235L760 235L800 235L840 235L880 235L920 235L960 235L1000 235L1040 235L1080 235L1120 235L1160 235L1200 235L1240 235L1280 235L1320 235L1360 235L1400 235L1440 235L1480 235L1520 235L1560 235L1600 235M0 274L40 274L80 274L120 274L160 274L200 274L240 274L280 274L320 274L360 274L400 274L440 274L480 274L520 274L560 274L600 274L640 274L680 274L720 274L760 274L800 274L840 274L880 274L920 274L960 274L1000 274L1040 274L1080 274L1120 274L1160 274L1200 274L1240 274L1280 274L1320 274L1360 274L1400 274L1440 274L1480 274L1520 274L1560 274L1600 274M0 352L40 352L80 352L120 352L160 352L200 352L240 352L280 352L320 352L360 352L400 352L440 352L480 352L520 352L560 352L600 352L640 352L680 352L720 352L760 352L800 352L840 352L880 352L920 352L960 352L1000 352L1040 352L1080 352L1120 352L1160 352L1200 352L1240 352L1280 352L1320 352L1360 352L1400 352L1440 352L1480 352L1520 352L1560 352L1600 352M0 391L40 391L80 391L120 391L160 391L200 391L240 391L280 391L320 391L360 391L400 391L440 391L480 391L520 391L560 391L600 391L640 391L680 391L720 391L760 391L800 391L840 391L880 391L920 391L960 391L1000 391L1040 391L1080 391L1120 391L1160 391L1200 391L1240 391L1280 391L1320 391L1360 391L1400 391L1440 391L1480 391L1520 391L1560 391L1600 391M0 430L40 430L80 430L120 430L160 430L200 430L240 430L280 430L320 430L360 430L400 430L440 430L480 430L520 430L560 430L600 430L640 430L680 430L720 430L760 430L800 430L840 430L880 430L920 430L960 430L1000 430L1040 430L1080 430L1120 430L1160 430L1200 430L1240 430L1280 430L1320 430L1360 430L1400 430L1440 430L1480 430L1520 430L1560 430L1600 430M0 509L40 509L80 509L120 509L160 509L200 509L240 509L280 509L320 509L360 509L400 509L440 509L480 509L520 509L560 509L600 509L640 509L680 509L720 509L760 509L800 509L840 509L880 509L920 509L960 509L1000 509L1040 509L1080 509L1120 509L1160 509L1200 509L1240 509L1280 509L1320 509L1360 509L1400 509L1440 509L1480 509L1520 509L1560 509L1600 509M0 548L40 548L80 548L120 548L160 548L200 548L240 548L280 548L320 548L360 548L400 548L440 548L480 548L520 548L560 548L600 548L640 548L680 548L720 548L760 548L800 548L840 548L880 548L920 548L960 548L1000 548L1040 548L1080 548L1120 548L1160 548L1200 548L1240 548L1280 548L1320 548L1360 548L1400 548L1440 548L1480 548L1520 548L1560 548L1600 548M0 587L40 587L80 587L120 587L160 587L200 587L240 587L280 587L320 587L360 587L400 587L440 587L480 587L520 587L560 587L600 587L640 587L680 587L720 587L760 587L800 587L840 587L880 587L920 587L960 587L1000 587L1040 587L1080 587L1120 587L1160 587L1200 587L1240 587L1280 587L1320 587L1360 587L1400 587L1440 587L1480 587L1520 587L1560 587L1600 587M0 665L40 665L80 665L120 665L160 665L200 665L240 665L280 665L320 665L360 665L400 665L440 665L480 665L520 665L560 665L600 665L640 665L680 665L720 665L760 665L800 665L840 665L880 665L920 665L960 665L1000 665L1040 665L1080 665L1120 665L1160 665L1200 665L1240 665L1280 665L1320 665L1360 665L1400 665L1440 665L1480 665L1520 665L1560 665L1600 665M0 704L40 704L80 704L120 704L160 704L200 704L240 704L280 704L320 704L360 704L400 704L440 704L480 704L520 704L560 704L600 704L640 704L680 704L720 704L760 704L800 704L840 704L880 704L920 704L960 704L1000 704L1040 704L1080 704L1120 704L1160 704L1200 704L1240 704L1280 704L1320 704L1360 704L1400 704L1440 704L1480 704L1520 704L1560 704L1600 704M0 743L40 743L80 743L120 743L160 743L200 743L240 743L280 743L320 743L360 743L400 743L440 743L480 743L520 743L560 743L600 743L640 743L680 743L720 743L760 743L800 743L840 743L880 743L920 743L960 743L1000 743L1040 743L1080 743L1120 743L1160 743L1200 743L1240 743L1280 743L1320 743L1360 743L1400 743L1440 743L1480 743L1520 743L1560 743L1600 743M0 822L40 822L80 822L120 822L160 822L200 822L240 822L280 822L320 822L360 822L400 822L440 822L480 822L520 822L560 822L600 822L640 822L680 822L720 822L760 822L800 822L840 822L880 822L920 822L960 822L1000 822L1040 822L1080 822L1120 822L1160 822L1200 822L1240 822L1280 822L1320 822L1360 822L1400 822L1440 822L1480 822L1520 822L1560 822L1600 822M0 861L40 861L80 861L120 861L160 861L200 861L240 861L280 861L320 861L360 861L400 861L440 861L480 861L520 861L560 861L600 861L640 861L680 861L720 861L760 861L800 861L840 861L880 861L920 861L960 861L1000 861L1040 861L1080 861L1120 861L1160 861L1200 861L1240 861L1280 861L1320 861L1360 861L1400 861L1440 861L1480 861L1520 861L1560 861L1600 861M40 0L40 39L40 78L40 117L40 157L40 196L40 235L40 274L40 313L40 352L40 391L40 430L40 470L40 509L40 548L40 587L40 626L40 665L40 704L40 743L40 783L40 822L40 861L40 900M80 0L80 39L80 78L80 117L80 157L80 196L80 235L80 274L80 313L80 352L80 391L80 430L80 470L80 509L80 548L80 587L80 626L80 665L80 704L80 743L80 783L80 822L80 861L80 900M120 0L120 39L120 78L120 117L120 157L120 196L120 235L120 274L120 313L120 352L120 391L120 430L120 470L120 509L120 548L120 587L120 626L120 665L120 704L120 743L120 783L120 822L120 861L120 900M200 0L200 39L200 78L200 117L200 157L200 196L200 235L200 274L200 313L200 352L200 391L200 430L200 470L200 509L200 548L200 587L200 626L200 665L200 704L200 743L200 783L200 822L200 861L200 900M240 0L240 39L240 78L240 117L240 157L240 196L240 235L240 274L240 313L240 352L240 391L240 430L240 470L240 509L240 548L240 587L240 626L240 665L240 704L240 743L240 783L240 822L240 861L240 900M280 0L280 39L280 78L280 117L280 157L280 196L280 235L280 274L280 313L280 352L280 391L280 430L280 470L280 509L280 548L280 587L280 626L280 665L280 704L280 743L280 783L280 822L280 861L280 900M360 0L360 39L360 78L360 117L360 157L360 196L360 235L360 274L360 313L360 352L360 391L360 430L360 470L360 509L360 548L360 587L360 626L360 665L360 704L360 743L360 783L360 822L360 861L360 900M400 0L400 39L400 78L400 117L400 157L400 196L400 235L400 274L400 313L400 352L400 391L400 430L400 470L400 509L400 548L400 587L400 626L400 665L400 704L400 743L400 783L400 822L400 861L400 900M440 0L440 39L440 78L440 117L440 157L440 196L440 235L440 274L440 313L440 352L440 391L440 430L440 470L440 509L440 548L440 587L440 626L440 665L440 704L440 743L440 783L440 822L440 861L440 900M520 0L520 39L520 78L520 117L520 157L520 196L520 235L520 274L520 313L520 352L520 391L520 430L520 470L520 509L520 548L520 587L520 626L520 665L520 704L520 743L520 783L520 822L520 861L520 900M560 0L560 39L560 78L560 117L560 157L560 196L560 235L560 274L560 313L560 352L560 391L560 430L560 470L560 509L560 548L560 587L560 626L560 665L560 704L560 743L560 783L560 822L560 861L560 900M600 0L600 39L600 78L600 117L600 157L600 196L600 235L600 274L600 313L600 352L600 391L600 430L600 470L600 509L600 548L600 587L600 626L600 665L600 704L600 743L600 783L600 822L600 861L600 900M680 0L680 39L680 78L680 117L680 157L680 196L680 235L680 274L680 313L680 352L680 391L680 430L680 470L680 509L680 548L680 587L680 626L680 665L680 704L680 743L680 783L680 822L680 861L680 900M720 0L720 39L720 78L720 117L720 157L720 196L720 235L720 274L720 313L720 352L720 391L720 430L720 470L720 509L720 548L720 587L720 626L720 665L720 704L720 743L720 783L720 822L720 861L720 900M760 0L760 39L760 78L760 117L760 157L760 196L760 235L760 274L760 313L760 352L760 391L760 430L760 470L760 509L760 548L760 587L760 626L760 665L760 704L760 743L760 783L760 822L760 861L760 900M840 0L840 39L840 78L840 117L840 157L840 196L840 235L840 274L840 313L840 352L840 391L840 430L840 470L840 509L840 548L840 587L840 626L840 665L840 704L840 743L840 783L840 822L840 861L840 900M880 0L880 39L880 78L880 117L880 157L880 196L880 235L880 274L880 313L880 352L880 391L880 430L880 470L880 509L880 548L880 587L880 626L880 665L880 704L880 743L880 783L880 822L880 861L880 900M920 0L920 39L920 78L920 117L920 157L920 196L920 235L920 274L920 313L920 352L920 391L920 430L920 470L920 509L920 548L920 587L920 626L920 665L920 704L920 743L920 783L920 822L920 861L920 900M1000 0L1000 39L1000 78L1000 117L1000 157L1000 196L1000 235L1000 274L1000 313L1000 352L1000 391L1000 430L1000 470L1000 509L1000 548L1000 587L1000 626L1000 665L1000 704L1000 743L1000 783L1000 822L1000 861L1000 900M1040 0L1040 39L1040 78L1040 117L1040 157L1040 196L1040 235L1040 274L1040 313L1040 352L1040 391L1040 430L1040 470L1040 509L1040 548L1040 587L1040 626L1040 665L1040 704L1040 743L1040 783L1040 822L1040 861L1040 900M1080 0L1080 39L1080 78L1080 117L1080 157L1080 196L1080 235L1080 274L1080 313L1080 352L1080 391L1080 430L1080 470L1080 509L1080 548L1080 587L1080 626L1080 665L1080 704L1080 743L1080 783L1080 822L1080 861L1080 900M1160 0L1160 39L1160 78L1160 117L1160 157L1160 196L1160 235L1160 274L1160 313L1160 352L1160 391L1160 430L1160 470L1160 509L1160 548L1160 587L1160 626L1160 665L1160 704L1160 743L1160 783L1160 822L1160 861L1160 900M1200 0L1200 39L1200 78L1200 117L1200 157L1200 196L1200 235L1200 274L1200 313L1200 352L1200 391L1200 430L1200 470L1200 509L1200 548L1200 587L1200 626L1200 665L1200 704L1200 743L1200 783L1200 822L1200 861L1200 900M1240 0L1240 39L1240 78L1240 117L1240 157L1240 196L1240 235L1240 274L1240 313L1240 352L1240 391L1240 430L1240 470L1240 509L1240 548L1240 587L1240 626L1240 665L1240 704L1240 743L1240 783L1240 822L1240 861L1240 900M1320 0L1320 39L1320 78L1320 117L1320 157L1320 196L1320 235L1320 274L1320 313L1320 352L1320 391L1320 430L1320 470L1320 509L1320 548L1320 587L1320 626L1320 665L1320 704L1320 743L1320 783L1320 822L1320 861L1320 900M1360 0L1360 39L1360 78L1360 117L1360 157L1360 196L1360 235L1360 274L1360 313L1360 352L1360 391L1360 430L1360 470L1360 509L1360 548L1360 587L1360 626L1360 665L1360 704L1360 743L1360 783L1360 822L1360 861L1360 900M1400 0L1400 39L1400 78L1400 117L1400 157L1400 196L1400 235L1400 274L1400 313L1400 352L1400 391L1400 430L1400 470L1400 509L1400 548L1400 587L1400 626L1400 665L1400 704L1400 743L1400 783L1400 822L1400 861L1400 900M1480 0L1480 39L1480 78L1480 117L1480 157L1480 196L1480 235L1480 274L1480 313L1480 352L1480 391L1480 430L1480 470L1480 509L1480 548L1480 587L1480 626L1480 665L1480 704L1480 743L1480 783L1480 822L1480 861L1480 900M1520 0L1520 39L1520 78L1520 117L1520 157L1520 196L1520 235L1520 274L1520 313L1520 352L1520 391L1520 430L1520 470L1520 509L1520 548L1520 587L1520 626L1520 665L1520 704L1520 743L1520 783L1520 822L1520 861L1520 900M1560 0L1560 39L1560 78L1560 117L1560 157L1560 196L1560 235L1560 274L1560 313L1560 352L1560 391L1560 430L1560 470L1560 509L1560 548L1560 587L1560 626L1560 665L1560 704L1560 743L1560 783L1560 822L1560 861L1560 900"/>
+    <path id="gridMajor" stroke="#2c48b8" stroke-width="1.6" opacity="0.85" d="M0 0L40 0L80 0L120 0L160 0L200 0L240 0L280 0L320 0L360 0L400 0L440 0L480 0L520 0L560 0L600 0L640 0L680 0L720 0L760 0L800 0L840 0L880 0L920 0L960 0L1000 0L1040 0L1080 0L1120 0L1160 0L1200 0L1240 0L1280 0L1320 0L1360 0L1400 0L1440 0L1480 0L1520 0L1560 0L1600 0M0 157L40 157L80 157L120 157L160 157L200 157L240 157L280 157L320 157L360 157L400 157L440 157L480 157L520 157L560 157L600 157L640 157L680 157L720 157L760 157L800 157L840 157L880 157L920 157L960 157L1000 157L1040 157L1080 157L1120 157L1160 157L1200 157L1240 157L1280 157L1320 157L1360 157L1400 157L1440 157L1480 157L1520 157L1560 157L1600 157M0 313L40 313L80 313L120 313L160 313L200 313L240 313L280 313L320 313L360 313L400 313L440 313L480 313L520 313L560 313L600 313L640 313L680 313L720 313L760 313L800 313L840 313L880 313L920 313L960 313L1000 313L1040 313L1080 313L1120 313L1160 313L1200 313L1240 313L1280 313L1320 313L1360 313L1400 313L1440 313L1480 313L1520 313L1560 313L1600 313M0 470L40 470L80 470L120 470L160 470L200 470L240 470L280 470L320 470L360 470L400 470L440 470L480 470L520 470L560 470L600 470L640 470L680 470L720 470L760 470L800 470L840 470L880 470L920 470L960 470L1000 470L1040 470L1080 470L1120 470L1160 470L1200 470L1240 470L1280 470L1320 470L1360 470L1400 470L1440 470L1480 470L1520 470L1560 470L1600 470M0 626L40 626L80 626L120 626L160 626L200 626L240 626L280 626L320 626L360 626L400 626L440 626L480 626L520 626L560 626L600 626L640 626L680 626L720 626L760 626L800 626L840 626L880 626L920 626L960 626L1000 626L1040 626L1080 626L1120 626L1160 626L1200 626L1240 626L1280 626L1320 626L1360 626L1400 626L1440 626L1480 626L1520 626L1560 626L1600 626M0 783L40 783L80 783L120 783L160 783L200 783L240 783L280 783L320 783L360 783L400 783L440 783L480 783L520 783L560 783L600 783L640 783L680 783L720 783L760 783L800 783L840 783L880 783L920 783L960 783L1000 783L1040 783L1080 783L1120 783L1160 783L1200 783L1240 783L1280 783L1320 783L1360 783L1400 783L1440 783L1480 783L1520 783L1560 783L1600 783M0 900L40 900L80 900L120 900L160 900L200 900L240 900L280 900L320 900L360 900L400 900L440 900L480 900L520 900L560 900L600 900L640 900L680 900L720 900L760 900L800 900L840 900L880 900L920 900L960 900L1000 900L1040 900L1080 900L1120 900L1160 900L1200 900L1240 900L1280 900L1320 900L1360 900L1400 900L1440 900L1480 900L1520 900L1560 900L1600 900M0 0L0 39L0 78L0 117L0 157L0 196L0 235L0 274L0 313L0 352L0 391L0 430L0 470L0 509L0 548L0 587L0 626L0 665L0 704L0 743L0 783L0 822L0 861L0 900M160 0L160 39L160 78L160 117L160 157L160 196L160 235L160 274L160 313L160 352L160 391L160 430L160 470L160 509L160 548L160 587L160 626L160 665L160 704L160 743L160 783L160 822L160 861L160 900M320 0L320 39L320 78L320 117L320 157L320 196L320 235L320 274L320 313L320 352L320 391L320 430L320 470L320 509L320 548L320 587L320 626L320 665L320 704L320 743L320 783L320 822L320 861L320 900M480 0L480 39L480 78L480 117L480 157L480 196L480 235L480 274L480 313L480 352L480 391L480 430L480 470L480 509L480 548L480 587L480 626L480 665L480 704L480 743L480 783L480 822L480 861L480 900M640 0L640 39L640 78L640 117L640 157L640 196L640 235L640 274L640 313L640 352L640 391L640 430L640 470L640 509L640 548L640 587L640 626L640 665L640 704L640 743L640 783L640 822L640 861L640 900M800 0L800 39L800 78L800 117L800 157L800 196L800 235L800 274L800 313L800 352L800 391L800 430L800 470L800 509L800 548L800 587L800 626L800 665L800 704L800 743L800 783L800 822L800 861L800 900M960 0L960 39L960 78L960 117L960 157L960 196L960 235L960 274L960 313L960 352L960 391L960 430L960 470L960 509L960 548L960 587L960 626L960 665L960 704L960 743L960 783L960 822L960 861L960 900M1120 0L1120 39L1120 78L1120 117L1120 157L1120 196L1120 235L1120 274L1120 313L1120 352L1120 391L1120 430L1120 470L1120 509L1120 548L1120 587L1120 626L1120 665L1120 704L1120 743L1120 783L1120 822L1120 861L1120 900M1280 0L1280 39L1280 78L1280 117L1280 157L1280 196L1280 235L1280 274L1280 313L1280 352L1280 391L1280 430L1280 470L1280 509L1280 548L1280 587L1280 626L1280 665L1280 704L1280 743L1280 783L1280 822L1280 861L1280 900M1440 0L1440 39L1440 78L1440 117L1440 157L1440 196L1440 235L1440 274L1440 313L1440 352L1440 391L1440 430L1440 470L1440 509L1440 548L1440 587L1440 626L1440 665L1440 704L1440 743L1440 783L1440 822L1440 861L1440 900M1600 0L1600 39L1600 78L1600 117L1600 157L1600 196L1600 235L1600 274L1600 313L1600 352L1600 391L1600 430L1600 470L1600 509L1600 548L1600 587L1600 626L1600 665L1600 704L1600 743L1600 783L1600 822L1600 861L1600 900"/>
+  </g>
+  <rect x="0" y="0" width="1600" height="900" fill="none" stroke="#3a6bff" stroke-width="12" opacity="0.16"/>
+  <rect x="0" y="0" width="1600" height="900" fill="none" stroke="#6f9bff" stroke-width="2.5"/>
+  <g id="glowLayer" fill="none"></g>
+  <g id="coreLayer" fill="none"></g>
+  <g id="ftexts" text-anchor="middle"></g>
+  <rect id="flash" x="-100" y="-100" width="1800" height="1100" fill="#ffffff" opacity="0" pointer-events="none"/>
+</g>
+
+<rect x="-3000" y="-3000" width="7600" height="6900" fill="url(#vig)" pointer-events="none"/>
+
+<g id="reticle" display="none" fill="none" stroke="#7fffd4" stroke-width="2" pointer-events="none">
+  <circle r="9"/>
+  <path d="M-18 0H-12M12 0H18M0 -18V-12M0 12V18"/>
+</g>
+
+<g id="bossBar" display="none">
+  <text id="bossName" x="800" y="30" text-anchor="middle" class="hudSmall" style="fill:#ff8aa6">HEXCORE</text>
+  <rect x="500" y="40" width="600" height="11" fill="#1a0610" stroke="#ff2e63" stroke-width="1.5"/>
+  <rect id="bossFill" x="502" y="42" width="596" height="7" fill="#ff2e63"/>
+</g>
+
+<g id="hud" display="none">
+  <text id="hudScore" x="0" y="-44" class="hudBig">0</text>
+  <text id="hudBest" x="2" y="-18" class="hudSmall">BEST 0</text>
+  <text id="hudWave" x="800" y="-46" text-anchor="middle" class="hudMid">WAVE 1</text>
+  <text id="hudMult" x="800" y="-18" text-anchor="middle" class="mult">x1</text>
+  <path id="hudLives" fill="none" stroke="#e8f6ff" stroke-width="2" stroke-linejoin="round"/>
+  <path id="hudBombs" fill="none" stroke="#ff4dff" stroke-width="2"/>
+  <g id="powBar"></g>
+  <text id="hint" x="1600" y="928" text-anchor="end" class="hudSmall">ESC PAUSE · M SOUND · N MUSIC · Q QUALITY · F AUTOFIRE</text>
+</g>
+
+<g id="banner" opacity="0" text-anchor="middle" pointer-events="none">
+  <text id="bannerMain" x="800" y="400" class="banner">WAVE 1</text>
+  <text id="bannerSub" x="800" y="448" class="bannerSub"> </text>
+</g>
+
+<text id="toast" x="800" y="868" text-anchor="middle" class="toast" opacity="0"> </text>
+<text id="fps" x="-30" y="928" class="hudSmall" display="none"> </text>
+
+<g id="ovTitle" text-anchor="middle">
+  <path d="M492 210L478 196L450 196L436 210L436 266L450 280L478 280L492 266L492 238L464 238M520 280L520 196L562 196L576 210L576 224L562 238L520 238M548 238L576 280M618 196L646 196M632 196L632 280M618 280L646 280M688 196L730 196L744 210L744 266L730 280L688 280L688 196M828 210L814 196L786 196L772 210L772 224L786 238L814 238L828 252L828 266L814 280L786 280L772 266M856 196L912 196M884 196L884 280M954 196L982 196L996 210L996 266L982 280L954 280L940 266L940 210L954 196M1024 280L1024 196L1066 196L1080 210L1080 224L1066 238L1024 238M1052 238L1080 280M1108 280L1108 196L1136 231L1164 196L1164 280" fill="none" stroke="url(#logoGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" filter="url(#soft)"/>
+  <path d="M492 210L478 196L450 196L436 210L436 266L450 280L478 280L492 266L492 238L464 238M520 280L520 196L562 196L576 210L576 224L562 238L520 238M548 238L576 280M618 196L646 196M632 196L632 280M618 280L646 280M688 196L730 196L744 210L744 266L730 280L688 280L688 196M828 210L814 196L786 196L772 210L772 224L786 238L814 238L828 252L828 266L814 280L786 280L772 266M856 196L912 196M884 196L884 280M954 196L982 196L996 210L996 266L982 280L954 280L940 266L940 210L954 196M1024 280L1024 196L1066 196L1080 210L1080 224L1066 238L1024 238M1052 238L1080 280M1108 280L1108 196L1136 231L1164 196L1164 280" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M492 210L478 196L450 196L436 210L436 266L450 280L478 280L492 266L492 238L464 238M520 280L520 196L562 196L576 210L576 224L562 238L520 238M548 238L576 280M618 196L646 196M632 196L632 280M618 280L646 280M688 196L730 196L744 210L744 266L730 280L688 280L688 196M828 210L814 196L786 196L772 210L772 224L786 238L814 238L828 252L828 266L814 280L786 280L772 266M856 196L912 196M884 196L884 280M954 196L982 196L996 210L996 266L982 280L954 280L940 266L940 210L954 196M1024 280L1024 196L1066 196L1080 210L1080 224L1066 238L1024 238M1052 238L1080 280M1108 280L1108 196L1136 231L1164 196L1164 280" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="800" y="336" class="sub">A TWIN-STICK VECTOR SHOOTER IN ONE .SVG FILE</text>
+  <text id="startHint" x="800" y="432" class="hudMid blink" display="none">CLICK OR PRESS ENTER TO START</text>
+  <g id="noJs">
+    <text x="800" y="418" class="hudMid" style="fill:#ffd36b">YOU ARE LOOKING AT A STILL PICTURE OF THE GAME</text>
+    <text x="800" y="452" class="ctl">Image viewers and previews don't run scripts. To play, open this .svg file</text>
+    <text x="800" y="476" class="ctl">directly in a web browser: drag it into Chrome, Edge, Firefox or Safari.</text>
+  </g>
+  <g id="controls" transform="translate(800 520)">
+    <text x="-24" y="0" text-anchor="end" class="ctl">MOVE</text>
+    <text x="0" y="0" text-anchor="start" class="ctlk">W A S D  ·  left stick</text>
+    <text x="-24" y="30" text-anchor="end" class="ctl">AIM + FIRE</text>
+    <text x="0" y="30" text-anchor="start" class="ctlk">mouse (hold button)  ·  arrow keys  ·  right stick</text>
+    <text x="-24" y="60" text-anchor="end" class="ctl">BOMB</text>
+    <text x="0" y="60" text-anchor="start" class="ctlk">SPACE  ·  right click  ·  A / RB</text>
+    <text x="-24" y="90" text-anchor="end" class="ctl">PAUSE</text>
+    <text x="0" y="90" text-anchor="start" class="ctlk">ESC  ·  P  ·  START</text>
+    <text x="-24" y="120" text-anchor="end" class="ctl">TOGGLES</text>
+    <text x="0" y="120" text-anchor="start" class="ctlk">M sound  ·  N music  ·  F autofire  ·  Q quality</text>
+    <text x="0" y="168" text-anchor="middle" class="ctl">Kill enemies, grab the green geoms to raise your multiplier. Every 5th wave brings a boss.</text>
+  </g>
+  <text id="titleBest" x="800" y="770" class="hudSmall"> </text>
+</g>
+
+<g id="ovPause" display="none" text-anchor="middle">
+  <rect x="-3000" y="-3000" width="7600" height="6900" fill="#020309" opacity="0.62"/>
+  <text x="800" y="330" class="big" style="fill:#ffffff">PAUSED</text>
+  <text x="800" y="380" class="sub">ESC / P / START TO RESUME  ·  X TO QUIT</text>
+  <text id="pauseInfo" x="800" y="440" class="ctl"> </text>
+  <use href="#controls" xlink:href="#controls" y="20"/>
+</g>
+
+<g id="ovOver" display="none" text-anchor="middle">
+  <rect x="-3000" y="-3000" width="7600" height="6900" fill="#020309" opacity="0.55"/>
+  <text x="800" y="290" class="big" style="fill:#ff3d6e">GAME OVER</text>
+  <text id="overScore" x="800" y="374" class="hudBig" style="font-size:46px">0</text>
+  <text id="overBest" x="800" y="414" class="sub"> </text>
+  <text id="overStats" x="800" y="474" class="ctl"> </text>
+  <text id="overStats2" x="800" y="502" class="ctl"> </text>
+  <text id="overHint" x="800" y="580" class="hudMid blink">CLICK OR PRESS ENTER TO PLAY AGAIN</text>
+</g>
+
+<script type="text/javascript"><![CDATA[
+(function () {
+// ===== 00_core.js =====
+'use strict';
+// ---------------------------------------------------------------------------
+// GRIDSTORM - core helpers, settings, shared game state
+// (all source files are concatenated into one IIFE inside the SVG)
+// ---------------------------------------------------------------------------
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.documentElement;
+const $ = id => document.getElementById(id);
+const W = 1600, H = 900, TAU = Math.PI * 2;
+const HASH = String(location.hash || '');
+
+// SVG documents have no document.body and createElement() makes non-SVG nodes,
+// so every node is built through createElementNS.
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  if (attrs) for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function show(e, on) { e.setAttribute('display', on ? 'inline' : 'none'); }
+
+const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
+const lerp = (a, b, t) => a + (b - a) * t;
+const rand = (a, b) => a + Math.random() * (b - a);
+const randi = (a, b) => Math.floor(a + Math.random() * (b - a + 1));
+const chance = p => Math.random() < p;
+const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+const r1 = v => Math.round(v * 10) / 10;
+
+function angDiff(a, b) {
+  let d = (b - a) % TAU;
+  if (d > Math.PI) d -= TAU;
+  if (d < -Math.PI) d += TAU;
+  return d;
+}
+function dist2(ax, ay, bx, by) { const dx = ax - bx, dy = ay - by; return dx * dx + dy * dy; }
+
+// swept test: does segment (x1,y1)-(x2,y2) pass within r of (cx,cy)?
+function segCircle(x1, y1, x2, y2, cx, cy, r) {
+  const dx = x2 - x1, dy = y2 - y1;
+  const l2 = dx * dx + dy * dy;
+  let t = l2 > 0 ? ((cx - x1) * dx + (cy - y1) * dy) / l2 : 0;
+  t = t < 0 ? 0 : t > 1 ? 1 : t;
+  const px = x1 + dx * t - cx, py = y1 + dy * t - cy;
+  return px * px + py * py <= r * r;
+}
+
+function fmt(n) { return String(Math.floor(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+// localStorage can throw (file:// in some browsers, private mode) - never rely on it
+const store = {
+  get(k, d) {
+    try { const v = localStorage.getItem('gridstorm.' + k); return v == null ? d : JSON.parse(v); }
+    catch (e) { return d; }
+  },
+  set(k, v) { try { localStorage.setItem('gridstorm.' + k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+};
+
+const SET = Object.assign({ mute: false, music: true, quality: 'auto', autofire: false }, store.get('settings', {}));
+function saveSettings() { store.set('settings', SET); }
+
+const G = {
+  state: 'title',          // title | play | dying | pause | over
+  prevState: 'play',
+  time: 0, playTime: 0,
+  score: 0, mult: 1, wave: 0,
+  best: Number(store.get('best', 0)) || 0,
+  bestWave: Number(store.get('bestWave', 0)) || 0,
+  lives: 3, bombs: 3,
+  kills: 0, shots: 0, hits: 0, maxMult: 1,
+  shake: 0, flash: 0, slow: 0,
+  dieT: 0, overT: 0,
+  nextLife: 100000, nextBomb: 75000,
+  newBest: false,
+  diff: 1
+};
+
+// ===== 01_input.js =====
+// ---------------------------------------------------------------------------
+// Input: keyboard (by physical key code), mouse, gamepad, touch sticks
+// ---------------------------------------------------------------------------
+const IN = {
+  keys: new Set(),
+  pressed: new Set(),      // edge-triggered "just pressed" codes for this frame
+  mx: W / 2, my: H / 2,    // mouse in world units
+  mdown: false,
+  aimSrc: 'mouse',         // mouse | keys | pad | touch
+  moveX: 0, moveY: 0,
+  aimX: 0, aimY: -1, aimFire: false,
+  padPrev: [], padSeen: false,
+  hit(code) { return this.pressed.has(code); },
+  endFrame() { this.pressed.clear(); }
+};
+const TOUCH = { move: null, aim: null };
+
+let invCTM = null;
+function updateCTM() {
+  try { const m = svg.getScreenCTM(); invCTM = m ? m.inverse() : null; } catch (e) { invCTM = null; }
+}
+function toWorld(cx, cy) {
+  if (!invCTM) updateCTM();
+  const m = invCTM;
+  if (!m) return [cx, cy];
+  return [m.a * cx + m.c * cy + m.e, m.b * cx + m.d * cy + m.f];
+}
+
+const ACT = {
+  start: () => IN.hit('Enter') || IN.hit('NumpadEnter') || IN.hit('Mouse0') || IN.hit('Pad0') || IN.hit('Pad9') || IN.hit('Tap'),
+  pause: () => IN.hit('Escape') || IN.hit('KeyP') || IN.hit('Pad9'),
+  bomb: () => IN.hit('Space') || IN.hit('ShiftLeft') || IN.hit('ShiftRight') || IN.hit('Mouse2') ||
+              IN.hit('Pad0') || IN.hit('Pad5') || IN.hit('Pad4') || IN.hit('Bomb')
+};
+
+function getPad() {
+  try {
+    const pads = navigator.getGamepads ? navigator.getGamepads() : null;
+    if (!pads) return null;
+    for (let i = 0; i < pads.length; i++) if (pads[i] && pads[i].connected) return pads[i];
+  } catch (e) { /* gamepad API unavailable */ }
+  return null;
+}
+
+IN.poll = function () {
+  const k = this.keys;
+  let mx = (k.has('KeyD') ? 1 : 0) - (k.has('KeyA') ? 1 : 0);
+  let my = (k.has('KeyS') ? 1 : 0) - (k.has('KeyW') ? 1 : 0);
+  const ax = (k.has('ArrowRight') ? 1 : 0) - (k.has('ArrowLeft') ? 1 : 0);
+  const ay = (k.has('ArrowDown') ? 1 : 0) - (k.has('ArrowUp') ? 1 : 0);
+  this.aimFire = false;
+  if (ax || ay) { this.aimSrc = 'keys'; this.aimX = ax; this.aimY = ay; this.aimFire = true; }
+
+  const p = getPad();
+  if (p) {
+    const b = p.buttons, axes = p.axes;
+    const bp = i => !!(b[i] && b[i].pressed);
+    const dz = v => (Math.abs(v) < 0.2 ? 0 : v);
+    mx += dz(axes[0] || 0); my += dz(axes[1] || 0);
+    if (bp(12)) my -= 1;
+    if (bp(13)) my += 1;
+    if (bp(14)) mx -= 1;
+    if (bp(15)) mx += 1;
+    if (axes.length >= 4) {
+      const rx = axes[2] || 0, ry = axes[3] || 0;
+      if (Math.hypot(rx, ry) > 0.3) { this.aimSrc = 'pad'; this.aimX = rx; this.aimY = ry; this.aimFire = true; }
+    }
+    if (!this.aimFire && (bp(7) || bp(6))) { if (this.aimSrc === 'mouse') this.aimSrc = 'pad'; this.aimFire = true; }
+    for (let i = 0; i < b.length; i++) {
+      const now = bp(i);
+      if (now && !this.padPrev[i]) { this.pressed.add('Pad' + i); this.padSeen = true; }
+      this.padPrev[i] = now;
+    }
+  }
+
+  if (TOUCH.move) {
+    mx += clamp((TOUCH.move.x - TOUCH.move.ox) / 60, -1, 1);
+    my += clamp((TOUCH.move.y - TOUCH.move.oy) / 60, -1, 1);
+  }
+  if (TOUCH.aim) {
+    const dx = TOUCH.aim.x - TOUCH.aim.ox, dy = TOUCH.aim.y - TOUCH.aim.oy;
+    if (Math.hypot(dx, dy) > 14) { this.aimSrc = 'touch'; this.aimX = dx; this.aimY = dy; this.aimFire = true; }
+  }
+  const m = Math.hypot(mx, my);
+  if (m > 1) { mx /= m; my /= m; }
+  this.moveX = mx; this.moveY = my;
+};
+
+// ---- listeners -------------------------------------------------------------
+window.addEventListener('resize', updateCTM);
+window.addEventListener('scroll', updateCTM);
+
+window.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;      // leave browser shortcuts alone
+  if (!IN.keys.has(e.code)) IN.pressed.add(e.code);
+  IN.keys.add(e.code);
+  if (e.code.indexOf('Arrow') === 0) IN.aimSrc = 'keys';
+  if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Tab', 'Backspace'].indexOf(e.code) >= 0) e.preventDefault();
+  AU.unlock();
+});
+window.addEventListener('keyup', e => { IN.keys.delete(e.code); });
+window.addEventListener('blur', () => { IN.keys.clear(); IN.mdown = false; TOUCH.move = TOUCH.aim = null; onBlur(); });
+
+window.addEventListener('mousemove', e => {
+  const p = toWorld(e.clientX, e.clientY);
+  IN.mx = p[0]; IN.my = p[1];
+  if (!IN.keys.has('ArrowUp') && !IN.keys.has('ArrowDown') && !IN.keys.has('ArrowLeft') && !IN.keys.has('ArrowRight')) IN.aimSrc = 'mouse';
+});
+window.addEventListener('mousedown', e => {
+  const p = toWorld(e.clientX, e.clientY);
+  IN.mx = p[0]; IN.my = p[1];
+  if (e.button === 0) { IN.mdown = true; IN.pressed.add('Mouse0'); IN.aimSrc = 'mouse'; }
+  else if (e.button === 2) IN.pressed.add('Mouse2');
+  AU.unlock();
+  e.preventDefault();
+});
+window.addEventListener('mouseup', e => { if (e.button === 0) IN.mdown = false; });
+window.addEventListener('contextmenu', e => e.preventDefault());
+
+// touch: left half = move stick, right half = aim/fire stick, quick tap on the right = bomb
+function touchStart(e) {
+  AU.unlock();
+  for (const t of e.changedTouches) {
+    const p = toWorld(t.clientX, t.clientY);
+    if (G.state !== 'play' && G.state !== 'dying') { IN.pressed.add('Tap'); continue; }
+    const s = { id: t.identifier, ox: p[0], oy: p[1], x: p[0], y: p[1], t0: performance.now() };
+    if (p[0] < W / 2 && !TOUCH.move) TOUCH.move = s;
+    else if (!TOUCH.aim) TOUCH.aim = s;
+  }
+  e.preventDefault();
+}
+function touchMove(e) {
+  for (const t of e.changedTouches) {
+    const p = toWorld(t.clientX, t.clientY);
+    for (const s of [TOUCH.move, TOUCH.aim]) if (s && s.id === t.identifier) { s.x = p[0]; s.y = p[1]; }
+  }
+  e.preventDefault();
+}
+function touchEnd(e) {
+  for (const t of e.changedTouches) {
+    if (TOUCH.move && TOUCH.move.id === t.identifier) TOUCH.move = null;
+    if (TOUCH.aim && TOUCH.aim.id === t.identifier) {
+      const s = TOUCH.aim;
+      if (performance.now() - s.t0 < 220 && Math.hypot(s.x - s.ox, s.y - s.oy) < 14) IN.pressed.add('Bomb');
+      TOUCH.aim = null;
+    }
+  }
+  e.preventDefault();
+}
+window.addEventListener('touchstart', touchStart, { passive: false });
+window.addEventListener('touchmove', touchMove, { passive: false });
+window.addEventListener('touchend', touchEnd, { passive: false });
+window.addEventListener('touchcancel', touchEnd, { passive: false });
+
+// ===== 02_audio.js =====
+// ---------------------------------------------------------------------------
+// Audio: everything is synthesized with WebAudio (no sound files)
+// ---------------------------------------------------------------------------
+const AU = {
+  ctx: null, out: null, sfxBus: null, musBus: null, noiseBuf: null, last: {},
+
+  unlock() {
+    if (this.ctx) {
+      if (this.ctx.state === 'suspended') { try { this.ctx.resume().catch(() => {}); } catch (e) { /* ignore */ } }
+      return;
+    }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    try {
+      const c = new AC();
+      this.ctx = c;
+      const comp = c.createDynamicsCompressor();
+      comp.threshold.value = -16; comp.knee.value = 10; comp.ratio.value = 5;
+      comp.attack.value = 0.003; comp.release.value = 0.2;
+      comp.connect(c.destination);
+      this.out = c.createGain(); this.out.gain.value = SET.mute ? 0 : 0.7; this.out.connect(comp);
+      this.sfxBus = c.createGain(); this.sfxBus.gain.value = 0.85; this.sfxBus.connect(this.out);
+      this.musBus = c.createGain(); this.musBus.gain.value = SET.music ? 0.3 : 0; this.musBus.connect(this.out);
+      const len = c.sampleRate;
+      const buf = c.createBuffer(1, len, c.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+      this.noiseBuf = buf;
+      MUS.start();
+    } catch (e) { this.ctx = null; }
+  },
+
+  setMute(m) {
+    SET.mute = m; saveSettings();
+    if (this.ctx) this.out.gain.setTargetAtTime(m ? 0 : 0.7, this.ctx.currentTime, 0.02);
+  },
+  setMusic(on) {
+    SET.music = on; saveSettings();
+    if (this.ctx) this.musBus.gain.setTargetAtTime(on ? 0.3 : 0, this.ctx.currentTime, 0.05);
+  },
+
+  tone(o) {
+    const c = this.ctx, t = o.t != null ? o.t : c.currentTime + (o.at || 0);
+    const osc = c.createOscillator(), g = c.createGain();
+    osc.type = o.type || 'square';
+    osc.frequency.setValueAtTime(o.f, t);
+    if (o.f2) osc.frequency.exponentialRampToValueAtTime(Math.max(20, o.f2), t + (o.slide || o.dur));
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(o.vol || 0.2, t + (o.a || 0.004));
+    g.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
+    let node = osc;
+    if (o.lp) {
+      const f = c.createBiquadFilter();
+      f.type = 'lowpass'; f.Q.value = o.q || 1;
+      f.frequency.setValueAtTime(o.lp, t);
+      if (o.lp2) f.frequency.exponentialRampToValueAtTime(o.lp2, t + o.dur);
+      node.connect(f); node = f;
+    }
+    node.connect(g); g.connect(o.dest || this.sfxBus);
+    osc.start(t); osc.stop(t + o.dur + 0.05);
+  },
+
+  noise(o) {
+    const c = this.ctx, t = o.t != null ? o.t : c.currentTime + (o.at || 0);
+    const src = c.createBufferSource();
+    src.buffer = this.noiseBuf; src.loop = true; src.playbackRate.value = o.rate || 1;
+    const f = c.createBiquadFilter();
+    f.type = o.ft || 'lowpass'; f.Q.value = o.q || 0.8;
+    f.frequency.setValueAtTime(o.f || 3000, t);
+    if (o.f2) f.frequency.exponentialRampToValueAtTime(o.f2, t + o.dur);
+    const g = c.createGain();
+    g.gain.setValueAtTime(o.vol || 0.3, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
+    src.connect(f); f.connect(g); g.connect(o.dest || this.sfxBus);
+    src.start(t, Math.random() * 0.5); src.stop(t + o.dur + 0.05);
+  },
+
+  sfx(name) {
+    if (!this.ctx || SET.mute || this.ctx.state !== 'running') return;
+    const now = this.ctx.currentTime;
+    const gap = { shoot: 0.06, hit: 0.035, pop: 0.03, geom: 0.035, spawn: 0.05, clink: 0.05, eshot: 0.06 }[name] || 0.02;
+    if (this.last[name] && now - this.last[name] < gap) return;
+    this.last[name] = now;
+    switch (name) {
+      case 'shoot': this.tone({ f: rand(860, 940), f2: 420, dur: 0.06, type: 'square', vol: 0.03, lp: 3000 }); break;
+      case 'hit': this.tone({ f: 1500, f2: 900, dur: 0.04, type: 'square', vol: 0.035, lp: 4000 }); break;
+      case 'clink': this.tone({ f: 2600, f2: 1900, dur: 0.06, type: 'triangle', vol: 0.06 }); break;
+      case 'pop':
+        this.noise({ dur: 0.28, vol: 0.22, f: 3200, f2: 180 });
+        this.tone({ f: rand(190, 260), f2: 55, dur: 0.2, type: 'triangle', vol: 0.16 });
+        break;
+      case 'boom':
+        this.noise({ dur: 0.9, vol: 0.45, f: 1400, f2: 50 });
+        this.tone({ f: 95, f2: 28, dur: 0.7, type: 'sine', vol: 0.5 });
+        break;
+      case 'geom': {
+        const m = Math.min(G.mult, 60);
+        this.tone({ f: 620 + m * 22, dur: 0.07, type: 'sine', vol: 0.07 });
+        break;
+      }
+      case 'power':
+        [0, 4, 7, 12, 16].forEach((s, i) => this.tone({ f: 523 * Math.pow(2, s / 12), at: i * 0.05, dur: 0.14, type: 'square', vol: 0.06, lp: 3500 }));
+        break;
+      case 'life':
+        [0, 7, 12, 19, 24].forEach((s, i) => this.tone({ f: 392 * Math.pow(2, s / 12), at: i * 0.08, dur: 0.22, type: 'triangle', vol: 0.12 }));
+        break;
+      case 'bomb':
+        this.noise({ dur: 1.7, vol: 0.7, f: 900, f2: 40 });
+        this.tone({ f: 70, f2: 22, dur: 1.5, type: 'sine', vol: 0.7 });
+        this.tone({ f: 1300, f2: 40, dur: 0.9, type: 'sawtooth', vol: 0.1, lp: 5000, lp2: 200 });
+        break;
+      case 'death':
+        this.noise({ dur: 1.5, vol: 0.6, f: 2400, f2: 50 });
+        this.tone({ f: 520, f2: 30, dur: 1.3, type: 'sawtooth', vol: 0.22, lp: 3000, lp2: 150 });
+        break;
+      case 'spawn': this.tone({ f: 170, f2: 700, dur: 0.14, type: 'triangle', vol: 0.03 }); break;
+      case 'wave':
+        [0, 4, 7, 12].forEach((s, i) => this.tone({ f: 330 * Math.pow(2, s / 12), at: i * 0.07, dur: 0.28, type: 'triangle', vol: 0.11 }));
+        break;
+      case 'clear':
+        [12, 7, 12, 19].forEach((s, i) => this.tone({ f: 330 * Math.pow(2, s / 12), at: i * 0.09, dur: 0.3, type: 'square', vol: 0.05, lp: 2500 }));
+        break;
+      case 'warn':
+        for (let i = 0; i < 4; i++) this.tone({ f: 330, f2: 660, at: i * 0.42, dur: 0.38, slide: 0.36, type: 'sawtooth', vol: 0.09, lp: 2200 });
+        break;
+      case 'dash': this.noise({ dur: 0.35, vol: 0.18, f: 500, f2: 3500, ft: 'bandpass', q: 3 }); break;
+      case 'eshot': this.tone({ f: 330, f2: 140, dur: 0.12, type: 'square', vol: 0.04, lp: 1800 }); break;
+      case 'absorb': this.tone({ f: 140, f2: 50, dur: 0.35, type: 'sine', vol: 0.22 }); break;
+      case 'plate':
+        this.tone({ f: 900, f2: 300, dur: 0.25, type: 'square', vol: 0.06, lp: 2500 });
+        this.noise({ dur: 0.3, vol: 0.2, f: 5000, f2: 800, ft: 'bandpass', q: 2 });
+        break;
+      case 'bossdie':
+        this.noise({ dur: 3.0, vol: 0.8, f: 2000, f2: 30 });
+        this.tone({ f: 120, f2: 18, dur: 2.8, type: 'sine', vol: 0.8 });
+        this.tone({ f: 880, f2: 40, dur: 2.0, type: 'sawtooth', vol: 0.1, lp: 4000, lp2: 100 });
+        break;
+      case 'start': this.tone({ f: 200, f2: 1600, dur: 0.45, type: 'sawtooth', vol: 0.07, lp: 4000 }); break;
+      case 'shield': this.tone({ f: 300, f2: 900, dur: 0.25, type: 'sine', vol: 0.12 }); break;
+      case 'tick': this.tone({ f: 1200, dur: 0.03, type: 'square', vol: 0.03 }); break;
+    }
+  }
+};
+
+// ---------------------------------------------------------------------------
+// Music: a small step sequencer (A minor loop) that gets busier with the waves
+// ---------------------------------------------------------------------------
+const MUS = {
+  timer: 0, step: 0, next: 0, bpm: 126, level: 0, paused: false,
+  start() {
+    if (this.timer || !AU.ctx) return;
+    this.next = AU.ctx.currentTime + 0.1;
+    this.timer = setInterval(() => this.tick(), 25);
+  },
+  tick() {
+    const c = AU.ctx;
+    if (!c || c.state !== 'running') return;
+    const spb = 60 / this.bpm / 4;
+    if (this.next < c.currentTime - 0.05) this.next = c.currentTime + 0.05;   // tab was asleep: skip ahead
+    while (this.next < c.currentTime + 0.12) {
+      if (SET.music && !SET.mute && !this.paused) this.play(this.step, this.next);
+      this.step = (this.step + 1) % 64;
+      this.next += spb;
+    }
+  },
+  hz(m) { return 440 * Math.pow(2, (m - 69) / 12); },
+  play(s, t) {
+    const st = s & 15, bar = s >> 4, lvl = this.level;
+    const prog = [[45, 0], [41, 1], [48, 1], [43, 1]];     // Am F C G
+    const root = prog[bar][0], maj = prog[bar][1];
+    if (lvl >= 1 && st % 4 === 0) this.kick(t);
+    if (lvl >= 3 && st === 14) this.kick(t);
+    if (st % 2 === 0) this.bass(root + (st === 6 || st === 14 ? 12 : 0), t, lvl === 0 ? 0.09 : 0.16);
+    if (lvl >= 2 && st % 4 === 2) this.hat(t, 0.08);
+    if (lvl >= 4 && st % 2 === 1) this.hat(t, 0.035);
+    if (lvl >= 2 && (st === 4 || st === 12)) this.snare(t);
+    const arp = maj ? [0, 4, 7, 12, 16, 12, 7, 4] : [0, 3, 7, 12, 15, 12, 7, 3];
+    if (lvl === 0 && st % 4 === 0) this.lead(root + 24 + arp[(st >> 2) + (bar & 1) * 4], t, 0.03);
+    if (lvl >= 3) this.lead(root + 24 + arp[st % 8], t, 0.022);
+  },
+  kick(t) { AU.tone({ t, f: 150, f2: 42, slide: 0.12, dur: 0.24, type: 'sine', vol: 0.5, dest: AU.musBus }); },
+  bass(m, t, v) { AU.tone({ t, f: this.hz(m), dur: 0.2, type: 'sawtooth', vol: v, lp: 700, lp2: 160, q: 7, dest: AU.musBus }); },
+  hat(t, v) { AU.noise({ t, dur: 0.045, vol: v, f: 7500, ft: 'highpass', dest: AU.musBus }); },
+  snare(t) {
+    AU.noise({ t, dur: 0.16, vol: 0.13, f: 1900, ft: 'bandpass', q: 1.2, dest: AU.musBus });
+    AU.tone({ t, f: 230, f2: 120, dur: 0.1, type: 'triangle', vol: 0.07, dest: AU.musBus });
+  },
+  lead(m, t, v) { AU.tone({ t, f: this.hz(m), dur: 0.12, type: 'square', vol: v, lp: 2600, dest: AU.musBus }); }
+};
+
+// ===== 03_render.js =====
+// ---------------------------------------------------------------------------
+// Renderer: an immediate-mode vector renderer on top of SVG.
+// Each "layer" is one <path> (plus an optional wide, faint glow copy).
+// Every frame the game appends path commands to the layers, then end()
+// writes each layer's "d" attribute once. Hundreds of objects = a handful
+// of DOM writes per frame.
+// ---------------------------------------------------------------------------
+const R = {
+  layers: [], byName: {}, glowG: null, coreG: null, quality: 'high',
+
+  init() { this.glowG = $('glowLayer'); this.coreG = $('coreLayer'); },
+
+  layer(name, color, width, o) {
+    if (this.byName[name]) return this.byName[name];
+    o = o || {};
+    const L = { name, s: '', prev: '', glow: null };
+    const core = {
+      stroke: o.fill && !o.stroke ? 'none' : color, 'stroke-width': width,
+      fill: o.fill ? color : 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+    };
+    if (o.opacity != null) core.opacity = o.opacity;
+    if (o.dash) core['stroke-dasharray'] = o.dash;
+    L.core = el('path', core, this.coreG);
+    if (o.glow !== false) {
+      L.glow = el('path', {
+        stroke: color, 'stroke-width': width * (o.glowW || 4) + (o.fill ? 7 : 0), fill: 'none',
+        opacity: o.glowOp || 0.2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+      }, this.glowG);
+    }
+    this.layers.push(L);
+    this.byName[name] = L;
+    return L;
+  },
+
+  end() {
+    const glow = this.quality !== 'low';
+    for (let i = 0; i < this.layers.length; i++) {
+      const L = this.layers[i];
+      if (L.s !== L.prev) {
+        L.core.setAttribute('d', L.s);
+        if (L.glow && glow) L.glow.setAttribute('d', L.s);
+        L.prev = L.s;
+      }
+      L.s = '';
+    }
+  },
+
+  setQuality(q) {
+    this.quality = q;
+    show(this.glowG, q !== 'low');
+    if (q === 'high') this.coreG.setAttribute('filter', 'url(#bloom)');
+    else this.coreG.removeAttribute('filter');
+    for (const L of this.layers) if (L.glow) L.glow.setAttribute('d', L.prev);
+  },
+
+  // p = flat [x0,y0,x1,y1,...] in unit space; scaled (sx,sy), rotated a, moved to x,y
+  poly(L, p, x, y, a, sx, sy, open) {
+    const c = Math.cos(a), s = Math.sin(a);
+    let str = 'M';
+    for (let i = 0; i < p.length; i += 2) {
+      const px = p[i] * sx, py = p[i + 1] * sy;
+      if (i) str += 'L';
+      str += r1(x + px * c - py * s) + ' ' + r1(y + px * s + py * c);
+    }
+    L.s += open ? str : str + 'Z';
+  },
+  shape(L, shp, x, y, a, s, sy) {
+    if (sy == null) sy = s;
+    for (let i = 0; i < shp.length; i++) this.poly(L, shp[i], x, y, a, s, sy, shp[i].open);
+  },
+  line(L, x1, y1, x2, y2) { L.s += 'M' + r1(x1) + ' ' + r1(y1) + 'L' + r1(x2) + ' ' + r1(y2); },
+  circle(L, x, y, r) {
+    r = r1(r);
+    if (r <= 0) return;
+    L.s += 'M' + r1(x - r) + ' ' + r1(y) + 'a' + r + ' ' + r + ' 0 1 0 ' + r1(2 * r) + ' 0a' + r + ' ' + r + ' 0 1 0 ' + r1(-2 * r) + ' 0';
+  },
+  // arc from angle a0 to a1 (radians, a1 > a0, span < 2PI) as polyline
+  arc(L, x, y, r, a0, a1, segs) {
+    let str = 'M';
+    for (let i = 0; i <= segs; i++) {
+      const a = a0 + (a1 - a0) * i / segs;
+      if (i) str += 'L';
+      str += r1(x + Math.cos(a) * r) + ' ' + r1(y + Math.sin(a) * r);
+    }
+    L.s += str;
+  }
+};
+
+// ---- shapes (unit space, +x = forward) -------------------------------------
+function open(arr) { arr.open = true; return arr; }
+function rot(arr, a) {
+  const c = Math.cos(a), s = Math.sin(a), out = [];
+  for (let i = 0; i < arr.length; i += 2) out.push(arr[i] * c - arr[i + 1] * s, arr[i] * s + arr[i + 1] * c);
+  return out;
+}
+function ngon(n, r, a0) {
+  const out = [];
+  for (let i = 0; i < n; i++) { const a = a0 + i * TAU / n; out.push(Math.cos(a) * r, Math.sin(a) * r); }
+  return out;
+}
+
+const SQ = [0.8, 0.8, -0.8, 0.8, -0.8, -0.8, 0.8, -0.8];
+const SH = {
+  ship: [[1.25, 0, -0.75, -0.9, -0.35, 0, -0.75, 0.9], [0.5, 0, -0.1, -0.3, -0.1, 0.3]],
+  drifter: [0, 1, 2, 3].map(k => rot([0, 0, 1, -0.15, 0.55, -0.78], k * TAU / 4)),
+  seeker: [[1, 0, 0, 0.62, -1, 0, 0, -0.62], [0.42, 0, 0, 0.26, -0.42, 0, 0, -0.26]],
+  dodger: [SQ, ngon(4, 0.8, 0)],
+  splitter: [SQ, open([-0.8, -0.8, 0.8, 0.8]), open([-0.8, 0.8, 0.8, -0.8])],
+  shard: [SQ],
+  lancer: [[1.35, 0, -0.85, -0.62, -0.45, 0, -0.85, 0.62], open([-0.45, 0, 0.55, 0])],
+  turret: [ngon(6, 1, 0), ngon(3, 0.5, 0)],
+  snakeHead: [[1.2, 0, 0.2, -0.78, -0.8, -0.45, -0.8, 0.45, 0.2, 0.78], open([0.2, -0.78, 0.45, 0, 0.2, 0.78])],
+  seg: [[0.6, 0, 0, 0.6, -0.6, 0, 0, -0.6]],
+  sprite: [[1, 0, -0.7, -0.7, -0.3, 0, -0.7, 0.7]],
+  geom: [[1, 0, 0, 0.55, -1, 0, 0, -0.55]],
+  hex: [ngon(6, 1, 0)],
+  hexIn: [ngon(6, 0.55, Math.PI / 6)]
+};
+
+const PICON = {
+  spread: [open([0, 0.5, -0.45, -0.45]), open([0, 0.5, 0, -0.55]), open([0, 0.5, 0.45, -0.45])],
+  rapid: [open([-0.45, 0.05, 0, -0.38, 0.45, 0.05]), open([-0.45, 0.45, 0, 0.02, 0.45, 0.45])],
+  pierce: [open([-0.55, 0, 0.55, 0]), open([0.25, -0.28, 0.55, 0, 0.25, 0.28]), open([-0.15, -0.5, -0.15, 0.5])],
+  shield: [ngon(6, 0.5, 0)],
+  bomb: [open([-0.5, 0, 0.5, 0]), open([-0.25, -0.43, 0.25, 0.43]), open([-0.25, 0.43, 0.25, -0.43])],
+  life: [[0.6, 0, -0.4, -0.45, -0.2, 0, -0.4, 0.45]]
+};
+
+// ===== 04_grid.js =====
+// ---------------------------------------------------------------------------
+// The warping background grid: a spring-mass mesh. Explosions push it,
+// gravity wells pull it, ripples travel through it.
+// ---------------------------------------------------------------------------
+const GRID = {
+  nx: 41, ny: 24, sx: 40, sy: H / 23, n: 0,
+  dx: null, dy: null, vx: null, vy: null,
+  minor: null, major: null, rest: 0, drawnRest: false,
+
+  init() {
+    this.n = this.nx * this.ny;
+    this.dx = new Float32Array(this.n); this.dy = new Float32Array(this.n);
+    this.vx = new Float32Array(this.n); this.vy = new Float32Array(this.n);
+    this.minor = $('gridMinor'); this.major = $('gridMajor');
+  },
+
+  reset() {
+    this.dx.fill(0); this.dy.fill(0); this.vx.fill(0); this.vy.fill(0);
+    this.rest = 0; this.drawnRest = false;
+  },
+
+  // radial velocity impulse; positive str pushes outward, negative pulls inward
+  push(x, y, rad, str) {
+    const nx = this.nx, sx = this.sx, sy = this.sy;
+    const i0 = Math.max(1, Math.floor((x - rad) / sx)), i1 = Math.min(nx - 2, Math.ceil((x + rad) / sx));
+    const j0 = Math.max(1, Math.floor((y - rad) / sy)), j1 = Math.min(this.ny - 2, Math.ceil((y + rad) / sy));
+    if (i0 > i1 || j0 > j1) return;
+    const r2 = rad * rad, dx = this.dx, dy = this.dy, vx = this.vx, vy = this.vy;
+    for (let j = j0; j <= j1; j++) {
+      for (let i = i0; i <= i1; i++) {
+        const k = j * nx + i;
+        const ox = i * sx + dx[k] - x, oy = j * sy + dy[k] - y;
+        const d2 = ox * ox + oy * oy;
+        if (d2 < r2 && d2 > 1) {
+          const d = Math.sqrt(d2), f = str * (1 - d / rad) / d;
+          vx[k] += ox * f; vy[k] += oy * f;
+        }
+      }
+    }
+    this.rest = 0;
+  },
+
+  update(dt) {
+    if (this.rest > 1.5) return;
+    const nx = this.nx, ny = this.ny, dx = this.dx, dy = this.dy, vx = this.vx, vy = this.vy;
+    const K = 30, KN = 80, damp = Math.exp(-3.4 * dt), lim = 46;
+    for (let j = 1; j < ny - 1; j++) {
+      for (let i = 1; i < nx - 1; i++) {
+        const k = j * nx + i;
+        const lx = dx[k - 1] + dx[k + 1] + dx[k - nx] + dx[k + nx] - 4 * dx[k];
+        const ly = dy[k - 1] + dy[k + 1] + dy[k - nx] + dy[k + nx] - 4 * dy[k];
+        vx[k] = (vx[k] + (KN * lx - K * dx[k]) * dt) * damp;
+        vy[k] = (vy[k] + (KN * ly - K * dy[k]) * dt) * damp;
+      }
+    }
+    let e = 0;
+    for (let j = 1; j < ny - 1; j++) {
+      for (let i = 1; i < nx - 1; i++) {
+        const k = j * nx + i;
+        let x = dx[k] + vx[k] * dt, y = dy[k] + vy[k] * dt;
+        if (x > lim) x = lim; else if (x < -lim) x = -lim;
+        if (y > lim) y = lim; else if (y < -lim) y = -lim;
+        dx[k] = x; dy[k] = y;
+        const a = Math.abs(vx[k]) + Math.abs(vy[k]) + Math.abs(x) + Math.abs(y);
+        if (a > e) e = a;
+      }
+    }
+    if (e < 0.25) this.rest += dt; else this.rest = 0;
+    if (this.rest > 1.5) { this.reset(); this.rest = 2; }
+  },
+
+  render() {
+    if (this.rest > 1.5) {
+      if (this.drawnRest) return;
+      this.drawnRest = true;
+    } else this.drawnRest = false;
+    const nx = this.nx, ny = this.ny, sx = this.sx, sy = this.sy, dx = this.dx, dy = this.dy;
+    let mn = '', mj = '';
+    for (let j = 0; j < ny; j++) {
+      let s = 'M';
+      const y0 = j * sy;
+      for (let i = 0; i < nx; i++) {
+        const k = j * nx + i;
+        if (i) s += 'L';
+        s += Math.round(i * sx + dx[k]) + ' ' + Math.round(y0 + dy[k]);
+      }
+      if (j % 4 === 0 || j === ny - 1) mj += s; else mn += s;
+    }
+    for (let i = 0; i < nx; i++) {
+      let s = 'M';
+      const x0 = i * sx;
+      for (let j = 0; j < ny; j++) {
+        const k = j * nx + i;
+        if (j) s += 'L';
+        s += Math.round(x0 + dx[k]) + ' ' + Math.round(j * sy + dy[k]);
+      }
+      if (i % 4 === 0) mj += s; else mn += s;
+    }
+    this.minor.setAttribute('d', mn);
+    this.major.setAttribute('d', mj);
+  }
+};
+
+// ===== 05_fx.js =====
+// ---------------------------------------------------------------------------
+// Effects: spark particles (ring buffer), shockwave rings, floating score text
+// ---------------------------------------------------------------------------
+const FX = {
+  N: 1600, head: 0,
+  x: null, y: null, vx: null, vy: null, life: null, max: null, col: null,
+  pal: [], palIdx: {}, rings: [], textPool: [],
+
+  init() {
+    const N = this.N;
+    this.x = new Float32Array(N); this.y = new Float32Array(N);
+    this.vx = new Float32Array(N); this.vy = new Float32Array(N);
+    this.life = new Float32Array(N); this.max = new Float32Array(N);
+    this.col = new Uint8Array(N);
+    const g = $('ftexts');
+    for (let i = 0; i < 30; i++) {
+      const t = el('text', { class: 'ftext', display: 'none' }, g);
+      t.textContent = ' ';
+      this.textPool.push({ el: t, life: 0, max: 1, x: 0, y: 0 });
+    }
+  },
+
+  color(c) {
+    let i = this.palIdx[c];
+    if (i == null) {
+      i = this.pal.length;
+      this.pal.push({
+        hot: R.layer('ph' + i, c, 2.3, { glowW: 3, glowOp: 0.16 }),
+        cool: R.layer('pc' + i, c, 1.5, { opacity: 0.5, glow: false })
+      });
+      this.palIdx[c] = i;
+    }
+    return i;
+  },
+
+  spawn(x, y, vx, vy, life, ci) {
+    const k = this.head;
+    this.head = (k + 1) % this.N;
+    this.x[k] = x; this.y[k] = y; this.vx[k] = vx; this.vy[k] = vy;
+    this.life[k] = life; this.max[k] = life; this.col[k] = ci;
+  },
+
+  burst(x, y, c, n, spd, life) {
+    const ci = this.color(c);
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * TAU, s = spd * (0.2 + Math.random() * 0.8);
+      this.spawn(x, y, Math.cos(a) * s, Math.sin(a) * s, life * (0.45 + Math.random() * 0.55), ci);
+    }
+  },
+
+  cone(x, y, ang, spread, c, n, spd, life) {
+    const ci = this.color(c);
+    for (let i = 0; i < n; i++) {
+      const a = ang + (Math.random() - 0.5) * spread, s = spd * (0.3 + Math.random() * 0.7);
+      this.spawn(x, y, Math.cos(a) * s, Math.sin(a) * s, life * (0.5 + Math.random() * 0.5), ci);
+    }
+  },
+
+  // explosion = colored burst + white-hot core + grid shove
+  explode(x, y, c, size) {
+    this.burst(x, y, c, Math.round(22 * size), 420 * Math.sqrt(size), 0.95);
+    this.burst(x, y, '#ffffff', Math.round(8 * size), 260 * Math.sqrt(size), 0.5);
+    GRID.push(x, y, 90 + 50 * size, 240 * Math.sqrt(size));
+  },
+
+  ring(x, y, c, r0, r1, dur, w) {
+    this.rings.push({ x, y, r0, r1, dur, t: 0, L: R.layer('ring' + c + (w || 3), c, w || 3, { glowOp: 0.3 }) });
+  },
+
+  text(x, y, str, color, size) {
+    let best = this.textPool[0];
+    for (const t of this.textPool) { if (t.life <= 0) { best = t; break; } if (t.life < best.life) best = t; }
+    best.life = best.max = 0.95; best.x = x; best.y = y;
+    best.el.textContent = str;
+    best.el.setAttribute('style', 'font-size:' + (size || 17) + 'px;fill:' + (color || '#ffffff'));
+    best.el.setAttribute('display', 'inline');
+  },
+
+  clear() {
+    this.life.fill(0);
+    this.rings.length = 0;
+    for (const t of this.textPool) { t.life = 0; t.el.setAttribute('display', 'none'); }
+  },
+
+  update(dt) {
+    const drag = Math.exp(-2.4 * dt), wells = EN.wells;
+    const X = this.x, Y = this.y, VX = this.vx, VY = this.vy, LF = this.life;
+    for (let k = 0; k < this.N; k++) {
+      if (LF[k] <= 0) continue;
+      LF[k] -= dt;
+      if (LF[k] <= 0) continue;
+      let vx = VX[k] * drag, vy = VY[k] * drag;
+      for (let w = 0; w < wells.length; w++) {
+        const e = wells[w], ox = e.x - X[k], oy = e.y - Y[k], d2 = ox * ox + oy * oy;
+        if (d2 < 90000 && d2 > 16) {
+          const d = Math.sqrt(d2), a = 90000 / (d + 30) * dt / d;
+          vx += (ox - oy * 0.6) * a; vy += (oy + ox * 0.6) * a;
+        }
+      }
+      let x = X[k] + vx * dt, y = Y[k] + vy * dt;
+      if (x < 0) { x = 0; vx = -vx * 0.5; } else if (x > W) { x = W; vx = -vx * 0.5; }
+      if (y < 0) { y = 0; vy = -vy * 0.5; } else if (y > H) { y = H; vy = -vy * 0.5; }
+      X[k] = x; Y[k] = y; VX[k] = vx; VY[k] = vy;
+    }
+    for (let i = this.rings.length - 1; i >= 0; i--) {
+      const r = this.rings[i];
+      r.t += dt;
+      if (r.t >= r.dur) this.rings.splice(i, 1);
+    }
+    for (const t of this.textPool) {
+      if (t.life <= 0) continue;
+      t.life -= dt;
+      if (t.life <= 0) { t.el.setAttribute('display', 'none'); continue; }
+      t.y -= 38 * dt;
+      t.el.setAttribute('x', r1(t.x));
+      t.el.setAttribute('y', r1(t.y));
+      t.el.setAttribute('opacity', r1(Math.min(1, t.life / t.max * 2)));
+    }
+  },
+
+  draw() {
+    const X = this.x, Y = this.y, VX = this.vx, VY = this.vy, LF = this.life, MX = this.max;
+    for (let k = 0; k < this.N; k++) {
+      if (LF[k] <= 0) continue;
+      const p = this.pal[this.col[k]];
+      const L = LF[k] > MX[k] * 0.45 ? p.hot : p.cool;
+      let tx = VX[k] * 0.032, ty = VY[k] * 0.032;
+      if (tx * tx + ty * ty < 1) { tx = tx >= 0 ? 0.8 : -0.8; ty = 0; }
+      R.line(L, X[k], Y[k], X[k] - tx, Y[k] - ty);
+    }
+    for (const r of this.rings) {
+      const f = r.t / r.dur, e = 1 - (1 - f) * (1 - f);
+      R.circle(r.L, r.x, r.y, r.r0 + (r.r1 - r.r0) * e);
+    }
+  }
+};
+
+// ===== 06_player.js =====
+// ---------------------------------------------------------------------------
+// Player ship, player bullets, enemy bullets, geoms (multiplier) and power-ups
+// ---------------------------------------------------------------------------
+const COL = { player: '#e8f6ff', pbullet: '#fff6c0', ebullet: '#ff5f6d', geom: '#c8ff4d', flame: '#ff9b3d' };
+const PU = {
+  spread: { c: '#ffe14d', name: 'SPREAD', dur: 14, w: 3 },
+  rapid: { c: '#4dd2ff', name: 'RAPID FIRE', dur: 14, w: 3 },
+  pierce: { c: '#ff8a4d', name: 'PIERCE', dur: 14, w: 2 },
+  shield: { c: '#7dffb0', name: 'SHIELD', dur: 8, w: 2 },
+  bomb: { c: '#ff4dff', name: '+1 BOMB', w: 1.4 },
+  life: { c: '#ffffff', name: '+1 LIFE', w: 0.5 }
+};
+
+const PL = {
+  x: W / 2, y: H / 2, vx: 0, vy: 0, ex: 0, ey: 0,
+  face: -Math.PI / 2, aim: -Math.PI / 2,
+  r: 15, hitR: 7, alive: true, inv: 0, fireCd: 0, trail: 0,
+  pw: { spread: 0, rapid: 0, pierce: 0, shield: 0 },
+  L: null, Ls: null,
+
+  init() {
+    this.L = R.layer('player', COL.player, 2.6, { glowOp: 0.25 });
+    this.Ls = R.layer('shield', PU.shield.c, 2, { glowOp: 0.25 });
+  },
+
+  reset() {
+    this.x = W / 2; this.y = H / 2; this.vx = this.vy = this.ex = this.ey = 0;
+    this.face = this.aim = -Math.PI / 2;
+    this.alive = true; this.inv = 2; this.fireCd = 0;
+    for (const k in this.pw) this.pw[k] = 0;
+  },
+
+  respawn() {
+    let x = W / 2, y = H / 2;
+    if (BOSS.e && dist2(BOSS.e.x, BOSS.e.y, x, y) < 350 * 350) y = BOSS.e.y < H / 2 ? H - 120 : 120;
+    this.x = x; this.y = y; this.vx = this.vy = this.ex = this.ey = 0;
+    this.alive = true; this.inv = 2.5; this.fireCd = 0.3;
+    FX.ring(x, y, COL.player, 140, 10, 0.5, 2);
+    FX.burst(x, y, COL.player, 20, 200, 0.6);
+  },
+
+  update(dt) {
+    if (!this.alive) return;
+    const k = 1 - Math.exp(-14 * dt), spd = 440;
+    this.vx += (IN.moveX * spd - this.vx) * k;
+    this.vy += (IN.moveY * spd - this.vy) * k;
+    const ed = Math.exp(-2.2 * dt);
+    this.ex *= ed; this.ey *= ed;
+    for (const w of EN.wells) {
+      const ox = w.x - this.x, oy = w.y - this.y, d = Math.hypot(ox, oy);
+      if (d < 360 && d > 1) { const a = 52000 / (d + 40) * dt / d; this.ex += ox * a; this.ey += oy * a; }
+    }
+    this.x = clamp(this.x + (this.vx + this.ex) * dt, this.r, W - this.r);
+    this.y = clamp(this.y + (this.vy + this.ey) * dt, this.r, H - this.r);
+
+    const sp = Math.hypot(this.vx, this.vy);
+    if (sp > 60) {
+      this.face += angDiff(this.face, Math.atan2(this.vy, this.vx)) * Math.min(1, dt * 14);
+      this.trail -= dt;
+      if (this.trail <= 0) {
+        this.trail = 0.018;
+        const bx = this.x - Math.cos(this.face) * 13, by = this.y - Math.sin(this.face) * 13;
+        FX.cone(bx, by, this.face + Math.PI, 0.6, COL.flame, 2, sp * 0.5 + 90, 0.3);
+      }
+      GRID.push(this.x, this.y, 50, 300 * dt * (sp / spd));
+    }
+
+    let ax, ay, fire;
+    if (IN.aimSrc === 'mouse') { ax = IN.mx - this.x; ay = IN.my - this.y; fire = IN.mdown || SET.autofire; }
+    else { ax = IN.aimX; ay = IN.aimY; fire = IN.aimFire; }
+    if (ax * ax + ay * ay > (IN.aimSrc === 'mouse' ? 9 : 0.01)) this.aim = Math.atan2(ay, ax);
+
+    for (const key in this.pw) if (this.pw[key] > 0) this.pw[key] = Math.max(0, this.pw[key] - dt);
+    if (this.inv > 0) this.inv = Math.max(0, this.inv - dt);
+    this.fireCd -= dt;
+    if (fire && this.fireCd <= 0) {
+      this.shoot();
+      this.fireCd += this.pw.rapid > 0 ? 0.052 : 0.095;
+      if (this.fireCd < 0) this.fireCd = 0;
+    }
+    if (!fire && this.fireCd < 0) this.fireCd = 0;
+  },
+
+  shoot() {
+    const a = this.aim, c = Math.cos(a), s = Math.sin(a), spd = 1150;
+    const pierce = this.pw.pierce > 0 ? 3 : 0;
+    const ox = this.x + c * 16, oy = this.y + s * 16;
+    if (this.pw.spread > 0) {
+      for (let i = -2; i <= 2; i++) {
+        const b = a + i * 0.1 + rand(-0.015, 0.015);
+        PB.spawn(ox, oy, Math.cos(b) * spd, Math.sin(b) * spd, pierce);
+      }
+      G.shots += 5;
+    } else {
+      for (let side = -1; side <= 1; side += 2) {
+        const j = rand(-0.025, 0.025);
+        PB.spawn(ox - s * 6 * side, oy + c * 6 * side, Math.cos(a + j) * spd, Math.sin(a + j) * spd, pierce);
+      }
+      G.shots += 2;
+    }
+    AU.sfx('shoot');
+  },
+
+  draw() {
+    if (!this.alive) return;
+    if (this.inv > 0 && this.pw.shield <= 0 && Math.floor(G.time * 14) % 2 === 0) return;
+    R.shape(this.L, SH.ship, this.x, this.y, this.face, this.r);
+    const sh = this.pw.shield;
+    if (sh > 0 && (sh > 2 || Math.floor(G.time * 10) % 2 === 0)) {
+      R.poly(this.Ls, ngon(6, 1, G.time * 2), this.x, this.y, 0, 30 + Math.sin(G.time * 9) * 2, 30 + Math.sin(G.time * 9) * 2);
+    }
+  }
+};
+
+// ---- player bullets ----------------------------------------------------------
+const PB = {
+  list: [], L: null, Lp: null,
+  init() {
+    this.L = R.layer('pbullet', COL.pbullet, 3, { glowOp: 0.22, glowW: 3.5 });
+    this.Lp = R.layer('pbulletP', PU.pierce.c, 3.4, { glowOp: 0.25, glowW: 3.5 });
+    for (let i = 0; i < 300; i++) this.list.push({ alive: false, x: 0, y: 0, px: 0, py: 0, vx: 0, vy: 0, pierce: 0, last: null, life: 0 });
+  },
+  clear() { for (const b of this.list) b.alive = false; },
+  spawn(x, y, vx, vy, pierce) {
+    for (let i = 0; i < this.list.length; i++) {
+      const b = this.list[i];
+      if (b.alive) continue;
+      b.alive = true; b.x = b.px = x; b.y = b.py = y; b.vx = vx; b.vy = vy;
+      b.pierce = pierce; b.last = null; b.life = 1.6;
+      return b;
+    }
+    return null;
+  },
+  update(dt) {
+    const wells = EN.wells;
+    for (const b of this.list) {
+      if (!b.alive) continue;
+      b.px = b.x; b.py = b.y;
+      for (let i = 0; i < wells.length; i++) {
+        const w = wells[i], ox = w.x - b.x, oy = w.y - b.y, d2 = ox * ox + oy * oy;
+        if (d2 < 67600 && d2 > 1) { const d = Math.sqrt(d2), a = 1.2e7 / (d2 + 3000) * dt / d; b.vx += ox * a; b.vy += oy * a; }
+      }
+      b.x += b.vx * dt; b.y += b.vy * dt; b.life -= dt;
+      if (b.x < 0 || b.x > W || b.y < 0 || b.y > H || b.life <= 0) {
+        b.alive = false;
+        if (b.life > 0) {
+          const x = clamp(b.x, 0, W), y = clamp(b.y, 0, H);
+          FX.burst(x, y, COL.pbullet, 3, 170, 0.25);
+          GRID.push(x, y, 50, 45);
+        }
+      } else GRID.push(b.x, b.y, 32, 260 * dt);
+    }
+  },
+  draw() {
+    for (const b of this.list) {
+      if (!b.alive) continue;
+      const t = b.pierce > 0 ? 0.03 : 0.017;
+      R.line(b.pierce > 0 ? this.Lp : this.L, b.x - b.vx * t, b.y - b.vy * t, b.x, b.y);
+    }
+  }
+};
+
+// ---- enemy bullets -------------------------------------------------------------
+const EB = {
+  list: [], L: null, Lc: null,
+  init() {
+    this.L = R.layer('ebullet', COL.ebullet, 2, { fill: true, stroke: true, glowOp: 0.25 });
+    this.Lc = R.layer('ebcore', '#ffffff', 0, { fill: true, glow: false });
+    for (let i = 0; i < 500; i++) this.list.push({ alive: false, x: 0, y: 0, vx: 0, vy: 0, r: 6, life: 0 });
+  },
+  clear(sparks) {
+    for (const b of this.list) {
+      if (b.alive && sparks) FX.burst(b.x, b.y, COL.ebullet, 3, 120, 0.3);
+      b.alive = false;
+    }
+  },
+  spawn(x, y, vx, vy, r) {
+    for (let i = 0; i < this.list.length; i++) {
+      const b = this.list[i];
+      if (b.alive) continue;
+      b.alive = true; b.x = x; b.y = y; b.vx = vx; b.vy = vy; b.r = r || 6; b.life = 9;
+      return b;
+    }
+    return null;
+  },
+  update(dt) {
+    for (const b of this.list) {
+      if (!b.alive) continue;
+      b.x += b.vx * dt; b.y += b.vy * dt; b.life -= dt;
+      if (b.x < b.r || b.x > W - b.r || b.y < b.r || b.y > H - b.r || b.life <= 0) {
+        b.alive = false;
+        if (b.life > 0) FX.burst(clamp(b.x, 0, W), clamp(b.y, 0, H), COL.ebullet, 2, 90, 0.2);
+      }
+    }
+  },
+  draw() {
+    for (const b of this.list) {
+      if (!b.alive) continue;
+      R.circle(this.L, b.x, b.y, b.r);
+      R.circle(this.Lc, b.x, b.y, b.r * 0.4);
+    }
+  }
+};
+
+// ---- pickups: geoms raise the multiplier, orbs grant power-ups ------------------
+const PK = {
+  geoms: [], pows: [], Lg: null, Lp: {}, sinceDrop: 0,
+  init() {
+    this.Lg = R.layer('geom', COL.geom, 1.8, { glowOp: 0.2 });
+    for (const k in PU) this.Lp[k] = R.layer('pu_' + k, PU[k].c, 2.2, { glowOp: 0.3 });
+    for (let i = 0; i < 300; i++) this.geoms.push({ alive: false, x: 0, y: 0, vx: 0, vy: 0, life: 0, a: 0 });
+  },
+  clear() { for (const g of this.geoms) g.alive = false; this.pows.length = 0; this.sinceDrop = 0; },
+
+  geom(x, y, n) {
+    for (let i = 0, made = 0; i < this.geoms.length && made < n; i++) {
+      const g = this.geoms[i];
+      if (g.alive) continue;
+      const a = Math.random() * TAU, s = rand(60, 220);
+      g.alive = true; g.x = x; g.y = y; g.vx = Math.cos(a) * s; g.vy = Math.sin(a) * s;
+      g.life = 7.5; g.a = Math.random() * TAU;
+      made++;
+    }
+  },
+
+  maybeDrop(x, y) {
+    this.sinceDrop++;
+    if (this.pows.length >= 2) return;
+    if (!(chance(0.03) || this.sinceDrop > 45)) return;
+    this.sinceDrop = 0;
+    let tot = 0;
+    for (const k in PU) tot += PU[k].w;
+    let r = Math.random() * tot, type = 'spread';
+    for (const k in PU) { r -= PU[k].w; if (r <= 0) { type = k; break; } }
+    this.power(x, y, type);
+  },
+
+  power(x, y, type) {
+    this.pows.push({ x: clamp(x, 30, W - 30), y: clamp(y, 30, H - 30), vx: rand(-50, 50), vy: rand(-50, 50), type, life: 11, t: 0 });
+  },
+
+  applyPower(p) {
+    const d = PU[p.type];
+    if (p.type === 'bomb') G.bombs = Math.min(9, G.bombs + 1);
+    else if (p.type === 'life') { G.lives = Math.min(9, G.lives + 1); AU.sfx('life'); }
+    else PL.pw[p.type] = Math.min(PL.pw[p.type] + d.dur, d.dur * 1.6);
+    AU.sfx(p.type === 'shield' ? 'shield' : 'power');
+    FX.ring(p.x, p.y, d.c, 10, 110, 0.45, 2);
+    FX.burst(p.x, p.y, d.c, 16, 220, 0.5);
+    FX.text(p.x, p.y - 28, d.name, d.c, 19);
+  },
+
+  update(dt) {
+    const px = PL.x, py = PL.y, live = PL.alive, drag = Math.exp(-2.2 * dt), wells = EN.wells;
+    for (const g of this.geoms) {
+      if (!g.alive) continue;
+      g.life -= dt;
+      if (g.life <= 0) { g.alive = false; continue; }
+      g.vx *= drag; g.vy *= drag; g.a += 3 * dt;
+      if (live) {
+        const ox = px - g.x, oy = py - g.y, d2 = ox * ox + oy * oy;
+        if (d2 < 26 * 26) {
+          g.alive = false;
+          G.mult++;
+          if (G.mult > G.maxMult) G.maxMult = G.mult;
+          AU.sfx('geom');
+          FX.burst(g.x, g.y, COL.geom, 4, 120, 0.3);
+          continue;
+        }
+        if (d2 < 150 * 150) { const d = Math.sqrt(d2), a = 3600 * dt / d; g.vx += ox * a; g.vy += oy * a; }
+      }
+      for (let i = 0; i < wells.length; i++) {
+        const w = wells[i], ox = w.x - g.x, oy = w.y - g.y, d2 = ox * ox + oy * oy;
+        if (d2 < w.r * w.r) { g.alive = false; break; }
+        if (d2 < 90000) { const d = Math.sqrt(d2), a = 900 * dt / d; g.vx += ox * a; g.vy += oy * a; }
+      }
+      g.x += g.vx * dt; g.y += g.vy * dt;
+      if (g.x < 8 || g.x > W - 8) { g.vx = -g.vx; g.x = clamp(g.x, 8, W - 8); }
+      if (g.y < 8 || g.y > H - 8) { g.vy = -g.vy; g.y = clamp(g.y, 8, H - 8); }
+    }
+    for (let i = this.pows.length - 1; i >= 0; i--) {
+      const p = this.pows[i];
+      p.t += dt; p.life -= dt;
+      if (p.life <= 0) { this.pows.splice(i, 1); continue; }
+      p.x += p.vx * dt; p.y += p.vy * dt;
+      if (p.x < 20 || p.x > W - 20) { p.vx = -p.vx; p.x = clamp(p.x, 20, W - 20); }
+      if (p.y < 20 || p.y > H - 20) { p.vy = -p.vy; p.y = clamp(p.y, 20, H - 20); }
+      if (live && dist2(px, py, p.x, p.y) < 36 * 36) { this.pows.splice(i, 1); this.applyPower(p); }
+    }
+  },
+
+  draw() {
+    for (const g of this.geoms) {
+      if (!g.alive || (g.life < 2 && Math.floor(g.life * 10) % 2)) continue;
+      R.shape(this.Lg, SH.geom, g.x, g.y, g.a, 7);
+    }
+    for (const p of this.pows) {
+      if (p.life < 3 && Math.floor(p.life * 8) % 2) continue;
+      const L = this.Lp[p.type];
+      R.circle(L, p.x, p.y, 18 + Math.sin(p.t * 6) * 1.5);
+      R.shape(L, PICON[p.type], p.x, p.y, 0, 17);
+    }
+  }
+};
+
+// ===== 07_enemies.js =====
+// ---------------------------------------------------------------------------
+// Enemies: a table of types (stats + behaviour + drawing) and a shared list
+// ---------------------------------------------------------------------------
+const EN = { list: [], wells: [], uid: 0, dead: 0, Lwhite: null, Lwarn: null };
+const ET = {};
+
+let TX = 0, TY = 0, TD = 1;               // scratch result of toPlayer()
+function toPlayer(e) {
+  const px = PL.alive ? PL.x : W / 2 + Math.cos(G.time * 0.5) * 300;
+  const py = PL.alive ? PL.y : H / 2 + Math.sin(G.time * 0.5) * 200;
+  TX = px - e.x; TY = py - e.y; TD = Math.hypot(TX, TY) || 1;
+}
+function steer(e, vx, vy, rate, dt) {
+  const k = Math.min(1, rate * dt);
+  e.vx += (vx - e.vx) * k; e.vy += (vy - e.vy) * k;
+}
+
+ET.drifter = {
+  name: 'DRIFTERS', color: '#3d8bff', r: 17, hp: 1, score: 25, cost: 1, geoms: 1, min: 1, weight: 3,
+  init(e) { e.dir = rand(0, TAU); e.turn = 0; e.tt = 0; e.spin = rand(2.5, 4) * (chance(0.5) ? 1 : -1); },
+  update(e, dt) {
+    e.tt -= dt;
+    if (e.tt <= 0) { e.turn = rand(-1.3, 1.3); e.tt = rand(0.6, 1.6); }
+    e.dir += e.turn * dt;
+    const s = 85 * G.diff;
+    e.vx = Math.cos(e.dir) * s; e.vy = Math.sin(e.dir) * s;
+    e.a += e.spin * dt;
+  }
+};
+
+ET.seeker = {
+  name: 'SEEKERS', color: '#2ef2ff', r: 16, hp: 1, score: 50, cost: 1, geoms: 1, min: 1, weight: 3,
+  update(e, dt) {
+    toPlayer(e);
+    const s = 205 * G.diff;
+    steer(e, TX / TD * s, TY / TD * s, 2.6, dt);
+    e.a = Math.atan2(e.vy, e.vx);
+  },
+  draw(e, L, s) {
+    const p = 1 + Math.sin(e.age * 12) * 0.12;
+    R.shape(L, SH.seeker, e.x, e.y, e.a, e.r * s * p, e.r * s / p);
+  }
+};
+
+ET.dodger = {
+  name: 'DODGERS', color: '#4dff6a', r: 17, hp: 1, score: 100, cost: 2, geoms: 2, min: 2, weight: 2,
+  init(e) { e.dvx = 0; e.dvy = 0; },
+  update(e, dt) {
+    toPlayer(e);
+    const s = 172 * G.diff;
+    for (let i = 0; i < PB.list.length; i++) {
+      const b = PB.list[i];
+      if (!b.alive) continue;
+      const ox = e.x - b.x, oy = e.y - b.y;
+      if (ox * ox + oy * oy > 25600) continue;
+      const bv = Math.hypot(b.vx, b.vy) || 1, ux = b.vx / bv, uy = b.vy / bv;
+      if (ox * ux + oy * uy < 0) continue;            // bullet already past us
+      const perp = -ox * uy + oy * ux;
+      if (Math.abs(perp) < e.r + 16) {
+        const side = perp >= 0 ? 1 : -1;
+        e.dvx += -uy * side * 2600 * dt; e.dvy += ux * side * 2600 * dt;
+      }
+    }
+    const dd = Math.exp(-5 * dt);
+    e.dvx *= dd; e.dvy *= dd;
+    const dm = Math.hypot(e.dvx, e.dvy);
+    if (dm > 520) { e.dvx *= 520 / dm; e.dvy *= 520 / dm; }
+    e.vx = TX / TD * s + e.dvx; e.vy = TY / TD * s + e.dvy;
+    e.a += 2.5 * dt;
+  }
+};
+
+ET.splitter = {
+  name: 'SPLITTERS', color: '#ff3dbb', r: 18, hp: 2, score: 100, cost: 2, geoms: 1, min: 3, weight: 2,
+  update(e, dt) {
+    toPlayer(e);
+    const ang = Math.atan2(TY, TX) + Math.sin(e.age * 2.2 + e.id) * 0.7, s = 115 * G.diff;
+    steer(e, Math.cos(ang) * s, Math.sin(ang) * s, 2, dt);
+    e.a += 1.6 * dt;
+  },
+  death(e, cause) {
+    if (cause === 'bomb') return;
+    for (let i = 0; i < 3; i++) {
+      const a = e.a + i * TAU / 3;
+      const s = spawnEnemy('shard', e.x + Math.cos(a) * 12, e.y + Math.sin(a) * 12, { spawn: 0 });
+      s.vx = Math.cos(a) * 330; s.vy = Math.sin(a) * 330;
+    }
+  }
+};
+
+ET.shard = {
+  name: 'SHARDS', color: '#ff3dbb', r: 9, hp: 1, score: 50, cost: 1, geoms: 0, min: 999, weight: 0, w: 2,
+  init(e) { e.ph = rand(0, TAU); e.orb = chance(0.5) ? 1 : -1; },
+  update(e, dt) {
+    toPlayer(e);
+    const ux = TX / TD, uy = TY / TD, s = 250 * G.diff, wob = Math.sin(e.age * 6 + e.ph) * 0.9 * e.orb;
+    steer(e, (ux - uy * wob) * s, (uy + ux * wob) * s, 3, dt);
+    e.a += 6 * dt;
+  }
+};
+
+ET.lancer = {
+  name: 'LANCERS', color: '#ff7a2e', r: 15, hp: 2, score: 150, cost: 3, geoms: 2, min: 4, weight: 1.6,
+  init(e) { e.st = 'approach'; e.t = 0; },
+  update(e, dt) {
+    toPlayer(e);
+    e.t += dt;
+    if (e.st === 'approach') {
+      const s = 150 * G.diff;
+      steer(e, TX / TD * s, TY / TD * s, 2, dt);
+      e.a = Math.atan2(e.vy, e.vx);
+      if ((TD < 380 && e.t > 0.8) || e.t > 4) { e.st = 'aim'; e.t = 0; }
+    } else if (e.st === 'aim') {
+      const d = Math.exp(-6 * dt);
+      e.vx *= d; e.vy *= d;
+      e.a += angDiff(e.a, Math.atan2(TY, TX)) * Math.min(1, 8 * dt);
+      if (e.t > 0.75) {
+        e.st = 'dash'; e.t = 0;
+        const s = 880 * G.diff;
+        e.vx = Math.cos(e.a) * s; e.vy = Math.sin(e.a) * s;
+        AU.sfx('dash');
+      }
+    } else if (e.st === 'dash') {
+      FX.cone(e.x, e.y, e.a + Math.PI, 0.5, this.color, 1, 220, 0.3);
+      if (e.t > 0.55) { e.st = 'recover'; e.t = 0; }
+    } else {
+      const d = Math.exp(-4 * dt);
+      e.vx *= d; e.vy *= d;
+      if (e.t > 0.6) { e.st = 'approach'; e.t = 0; }
+    }
+  },
+  draw(e, L, s) {
+    R.shape(L, SH.lancer, e.x, e.y, e.a, e.r * s);
+    if (e.st === 'aim' && e.spawn <= 0 && e.doom == null) {
+      const c = Math.cos(e.a), n = Math.sin(e.a);
+      R.line(EN.Lwarn, e.x + c * 22, e.y + n * 22, e.x + c * 900, e.y + n * 900);
+    }
+  }
+};
+
+ET.turret = {
+  name: 'TURRETS', color: '#a46bff', r: 21, hp: 5, score: 200, cost: 4, geoms: 3, min: 6, weight: 1,
+  init(e) { e.cd = rand(1.4, 2.4); e.tx = rand(150, W - 150); e.ty = rand(120, H - 120); },
+  update(e, dt) {
+    const ox = e.tx - e.x, oy = e.ty - e.y, d = Math.hypot(ox, oy) || 1;
+    if (d < 30) { e.tx = rand(150, W - 150); e.ty = rand(120, H - 120); }
+    steer(e, ox / d * 60, oy / d * 60, 1, dt);
+    e.a += 0.9 * dt;
+    e.cd -= dt;
+    if (e.cd <= 0 && PL.alive) {
+      e.cd = Math.max(1.3, 2.6 - G.wave * 0.05);
+      toPlayer(e);
+      const base = Math.atan2(TY, TX);
+      for (let i = -1; i <= 1; i++) {
+        const a = base + i * 0.22;
+        EB.spawn(e.x + Math.cos(a) * 24, e.y + Math.sin(a) * 24, Math.cos(a) * 235, Math.sin(a) * 235, 6);
+      }
+      AU.sfx('eshot');
+      FX.burst(e.x, e.y, this.color, 6, 140, 0.3);
+    }
+  },
+  draw(e, L, s) {
+    R.shape(L, SH.hex, e.x, e.y, e.a, e.r * s);
+    R.poly(L, ngon(3, 0.5, 0), e.x, e.y, -e.a * 2, e.r * s, e.r * s);
+    if (e.cd < 0.45 && e.spawn <= 0) R.circle(L, e.x, e.y, e.r * (1.6 - e.cd * 1.2));
+  }
+};
+
+ET.well = {
+  name: 'GRAVITY WELLS', color: '#ff3355', r: 24, hp: 16, score: 300, cost: 6, geoms: 6, min: 7, weight: 0.7, max: 2,
+  init(e) { e.absorbed = 0; e.hp = 16 + G.wave; e.pulse = 0; },
+  update(e, dt) {
+    const d0 = Math.exp(-3 * dt);
+    e.vx *= d0; e.vy *= d0;
+    e.r = 24 + e.absorbed * 2.5;
+    e.pulse += dt * (4 + e.absorbed);
+    GRID.push(e.x, e.y, 200 + e.r * 3, -(1300 + e.absorbed * 160) * dt);
+    for (const o of EN.list) {
+      if (o === e || !o.alive || o.spawn > 0 || o.type === 'well' || o.doom != null) continue;
+      const ox = e.x - o.x, oy = e.y - o.y, d2 = ox * ox + oy * oy;
+      if (d2 > 102400) continue;
+      const d = Math.sqrt(d2) || 1;
+      if (d < e.r + o.r * 0.5) {
+        killEnemy(o, 'absorb');
+        e.absorbed++; e.hp += 3;
+        AU.sfx('absorb');
+        FX.burst(o.x, o.y, o.d.color, 10, 150, 0.4);
+        continue;
+      }
+      const sp = 14000 / (d + 30);
+      o.x += ox / d * sp * dt; o.y += oy / d * sp * dt;
+    }
+    if (Math.random() < dt * 30) {
+      const a = Math.random() * TAU, rr = rand(110, 170);
+      FX.spawn(e.x + Math.cos(a) * rr, e.y + Math.sin(a) * rr, -Math.sin(a) * 160 - Math.cos(a) * 60, Math.cos(a) * 160 - Math.sin(a) * 60, 0.9, FX.color(this.color));
+    }
+    if (e.absorbed >= 8) { FX.text(e.x, e.y - 40, 'OVERLOAD!', '#ff8fa8', 20); killEnemy(e, 'overload'); }
+  },
+  death(e, cause) {
+    G.shake = Math.max(G.shake, 12);
+    GRID.push(e.x, e.y, 320, 700);
+    FX.ring(e.x, e.y, this.color, e.r, 260, 0.5, 3);
+    if (cause === 'overload') {
+      for (let i = 0; i < 9; i++) {
+        const a = i * TAU / 9, s = spawnEnemy('sprite', e.x, e.y, { spawn: 0 });
+        s.vx = Math.cos(a) * 420; s.vy = Math.sin(a) * 420;
+      }
+    }
+  },
+  draw(e, L, s) {
+    const p = Math.sin(e.pulse) * 0.08, r = e.r * s;
+    R.circle(L, e.x, e.y, r * (1 + p));
+    R.circle(L, e.x, e.y, r * (0.62 - p));
+    R.circle(L, e.x, e.y, r * 0.24);
+  }
+};
+
+ET.sprite = {
+  name: 'SPRITES', color: '#ff8fa8', r: 8, hp: 1, score: 15, cost: 1, geoms: 0, min: 999, weight: 0, w: 1.8,
+  init(e) { e.ph = rand(0, TAU); },
+  update(e, dt) {
+    toPlayer(e);
+    const ang = Math.atan2(TY, TX) + Math.sin(e.age * 9 + e.ph) * 0.6, s = 290 * G.diff;
+    steer(e, Math.cos(ang) * s, Math.sin(ang) * s, 3, dt);
+    e.a = Math.atan2(e.vy, e.vx);
+  }
+};
+
+ET.snake = {
+  name: 'SNAKES', color: '#ffcf3d', r: 15, hp: 4, score: 250, cost: 5, geoms: 4, min: 8, weight: 1,
+  init(e) {
+    e.dir = rand(0, TAU); e.ph = rand(0, TAU); e.hist = [];
+    e.tail = [];
+    for (let i = 0; i < 14; i++) e.tail.push({ x: e.x, y: e.y });
+  },
+  update(e, dt) {
+    toPlayer(e);
+    const want = Math.atan2(TY, TX) + Math.sin(e.age * 3 + e.ph) * 0.9;
+    e.dir += clamp(angDiff(e.dir, want), -2.4 * dt, 2.4 * dt);
+    const s = 165 * G.diff;
+    e.vx = Math.cos(e.dir) * s; e.vy = Math.sin(e.dir) * s;
+    e.a = e.dir;
+    const h = e.hist;
+    if (!h.length || dist2(h[0].x, h[0].y, e.x, e.y) > 16) {
+      h.unshift({ x: e.x, y: e.y });
+      if (h.length > 60) h.pop();
+    }
+    for (let i = 0; i < e.tail.length; i++) {
+      const p = h[Math.min(h.length - 1, (i + 1) * 3)];
+      if (p) { e.tail[i].x = p.x; e.tail[i].y = p.y; }
+    }
+  },
+  death(e) { for (const t of e.tail) FX.burst(t.x, t.y, this.color, 4, 170, 0.5); },
+  draw(e, L, s) {
+    R.shape(L, SH.snakeHead, e.x, e.y, e.a, e.r * s);
+    if (e.spawn > 0) return;
+    const n = e.tail.length;
+    for (let i = 0; i < n; i++) R.shape(L, SH.seg, e.tail[i].x, e.tail[i].y, e.age * 3 + i, 9.5 * (1 - i / (n + 8)));
+  }
+};
+
+// ---- lifecycle ---------------------------------------------------------------
+EN.init = function () {
+  for (const k in ET) { const d = ET[k]; d.L = R.layer('e_' + k, d.color, d.w || 2.4, { glowOp: 0.22 }); }
+  this.Lwhite = R.layer('e_flash', '#ffffff', 2.6, { glowOp: 0.3 });
+  this.Lwarn = R.layer('e_warn', '#ff7a2e', 1.6, { dash: '8 10', glow: false, opacity: 0.85 });
+};
+
+function spawnEnemy(type, x, y, o) {
+  const d = ET[type];
+  const e = {
+    type, d, id: ++EN.uid, x: clamp(x, d.r, W - d.r), y: clamp(y, d.r, H - d.r), vx: 0, vy: 0,
+    a: rand(0, TAU), r: d.r, hp: d.hp > 1 ? d.hp + Math.floor(G.wave / 8) : d.hp,
+    alive: true, spawn: 0.75, age: 0, flash: 0, doom: null, dir: null
+  };
+  if (d.init) d.init(e);
+  if (o) Object.assign(e, o);
+  EN.list.push(e);
+  if (e.spawn > 0) AU.sfx('spawn');
+  return e;
+}
+
+function killEnemy(e, cause) {
+  if (!e.alive) return;
+  e.alive = false;
+  EN.dead++;
+  const d = e.d;
+  if (cause === 'absorb') return;
+  if (cause === 'clear') { FX.burst(e.x, e.y, d.color, 12, 220, 0.6); return; }
+  const big = e.type === 'well' ? 3 : (e.type === 'snake' || e.type === 'turret') ? 1.6 : e.r < 10 ? 0.55 : 1;
+  FX.explode(e.x, e.y, d.color, big);
+  if (cause !== 'overload') {
+    const pts = d.score * (e.type === 'well' ? 1 + e.absorbed : 1) * G.mult;
+    addScore(pts);
+    if (pts >= 200) FX.text(e.x, e.y - e.r - 8, fmt(pts), d.color, pts >= 10000 ? 22 : 17);
+    G.kills++;
+    if (cause !== 'bomb') { PK.geom(e.x, e.y, d.geoms); PK.maybeDrop(e.x, e.y); }
+  }
+  if (d.death) d.death(e, cause);
+  AU.sfx(big >= 1.6 ? 'boom' : 'pop');
+  if (big >= 1.6) G.shake = Math.max(G.shake, 8);
+}
+
+function damageEnemy(e, dmg) {
+  e.hp -= dmg;
+  e.flash = 0.07;
+  if (e.hp <= 0) { killEnemy(e, 'shot'); return; }
+  AU.sfx('hit');
+  if (e.type === 'well') { FX.burst(e.x, e.y, e.d.color, 4, 200, 0.3); GRID.push(e.x, e.y, 90, 140); }
+}
+
+EN.clear = function (mode) {
+  for (const e of this.list) {
+    if (!e.alive) continue;
+    if (mode === 'silent') e.alive = false; else killEnemy(e, 'clear');
+  }
+  this.list.length = 0;
+  this.wells.length = 0;
+};
+
+EN.alive = function () {
+  let n = 0;
+  for (const e of this.list) if (e.alive) n++;
+  return n;
+};
+
+EN.update = function (dt) {
+  this.wells.length = 0;
+  for (const e of this.list) if (e.alive && e.type === 'well' && e.spawn <= 0 && e.doom == null) this.wells.push(e);
+  for (let i = 0; i < this.list.length; i++) {
+    const e = this.list[i];
+    if (!e.alive) continue;
+    if (e.doom != null) { e.doom -= dt; if (e.doom <= 0) killEnemy(e, 'bomb'); continue; }
+    if (e.spawn > 0) { e.spawn -= dt; continue; }
+    e.age += dt;
+    if (e.flash > 0) e.flash -= dt;
+    e.d.update(e, dt);
+    e.x += e.vx * dt; e.y += e.vy * dt;
+    let wall = false;
+    if (e.x < e.r) { e.x = e.r; e.vx = Math.abs(e.vx); wall = true; }
+    else if (e.x > W - e.r) { e.x = W - e.r; e.vx = -Math.abs(e.vx); wall = true; }
+    if (e.y < e.r) { e.y = e.r; e.vy = Math.abs(e.vy); wall = true; }
+    else if (e.y > H - e.r) { e.y = H - e.r; e.vy = -Math.abs(e.vy); wall = true; }
+    if (wall && e.dir != null) e.dir = Math.atan2(e.vy, e.vx);
+  }
+  // keep enemies from stacking into one blob
+  const L = this.list;
+  for (let i = 0; i < L.length; i++) {
+    const a = L[i];
+    if (!a.alive || a.spawn > 0 || a.type === 'well' || a.type === 'snake') continue;
+    for (let j = i + 1; j < L.length; j++) {
+      const b = L[j];
+      if (!b.alive || b.spawn > 0 || b.type === 'well' || b.type === 'snake') continue;
+      const dx = b.x - a.x, dy = b.y - a.y, rr = (a.r + b.r) * 0.85, d2 = dx * dx + dy * dy;
+      if (d2 < rr * rr && d2 > 0.01) {
+        const d = Math.sqrt(d2), p = (rr - d) * 0.5 / d;
+        a.x -= dx * p; a.y -= dy * p; b.x += dx * p; b.y += dy * p;
+      }
+    }
+  }
+  if (this.dead > 40) { this.list = this.list.filter(e => e.alive); this.dead = 0; }
+};
+
+EN.draw = function () {
+  for (const e of this.list) {
+    if (!e.alive) continue;
+    let s = 1;
+    if (e.spawn > 0) {
+      if (Math.floor(e.spawn * 20) % 2) continue;
+      s = 1 + e.spawn * 2.2;
+    }
+    const L = (e.flash > 0 || e.doom != null) ? this.Lwhite : e.d.L;
+    if (e.d.draw) e.d.draw(e, L, s);
+    else R.shape(L, SH[e.type], e.x, e.y, e.a, e.r * s);
+  }
+};
+
+// ===== 08_boss.js =====
+// ---------------------------------------------------------------------------
+// Boss: HEXCORE - a core inside a spinning ring of armour plates.
+// Shoot plates away (or aim through the gaps) to reach the core.
+// ---------------------------------------------------------------------------
+const BOSS = {
+  e: null, Lp: null, Lpd: null, Lc: null, Lw: null, kills: 0,
+  RIN: 78, ROUT: 106, RCORE: 60, N: 12,
+
+  init() {
+    this.Lp = R.layer('b_plate', '#ffa13d', 2.6, { glowOp: 0.22 });
+    this.Lpd = R.layer('b_plateD', '#ff5a2e', 2, { glowOp: 0.18, opacity: 0.75 });
+    this.Lc = R.layer('b_core', '#ff2e63', 3, { glowOp: 0.28 });
+    this.Lw = R.layer('b_flash', '#ffffff', 3, { glowOp: 0.3 });
+  },
+
+  start(cycle) {
+    const hp = Math.round(230 * (1 + 0.6 * (cycle - 1)));
+    const php = Math.round(7 * (1 + 0.5 * (cycle - 1)));
+    this.e = {
+      x: W / 2, y: -160, vx: 0, vy: 0, cycle, hp, max: hp,
+      plates: new Array(this.N).fill(php), pmax: php,
+      rot: 0, spin: 0.5, t: 0, enter: 2.6, phase: 1,
+      spiralT: 0, spiralOn: true, spiralSw: 3, burstT: 2.5, ringT: 4, minionT: 5,
+      chargeT: 5, charge: 0, chargeDir: 0, flash: 0, dying: 0, orbit: -Math.PI / 2
+    };
+    $('bossName').textContent = 'HEXCORE  MK-' + cycle;
+    show($('bossBar'), true);
+  },
+
+  clear() { this.e = null; show($('bossBar'), false); },
+
+  update(dt) {
+    const b = this.e;
+    if (!b) return;
+    b.t += dt;
+    if (b.flash > 0) b.flash -= dt;
+
+    if (b.dying > 0) {
+      b.dying -= dt;
+      b.rot += dt * 4;
+      b.vx *= 0.9; b.vy *= 0.9;
+      if (Math.random() < dt * 14) {
+        const a = rand(0, TAU), r = rand(0, 100);
+        FX.explode(b.x + Math.cos(a) * r, b.y + Math.sin(a) * r, pick(['#ff2e63', '#ffa13d', '#ffffff']), 1);
+        AU.sfx('pop');
+        G.shake = Math.max(G.shake, 6);
+      }
+      if (b.dying <= 0) this.finish();
+      return;
+    }
+
+    if (b.enter > 0) {
+      b.enter -= dt;
+      const f = 1 - Math.pow(Math.max(0, b.enter) / 2.6, 2);
+      b.y = lerp(-160, 250, f);
+      b.rot += dt * 2;
+      GRID.push(b.x, b.y, 240, -900 * dt);
+      return;
+    }
+
+    const f = b.hp / b.max, ph = f > 0.66 ? 1 : f > 0.33 ? 2 : 3;
+    if (ph !== b.phase) {
+      b.phase = ph;
+      AU.sfx('warn');
+      HUD.banner('', ph === 2 ? 'HEXCORE IS ANGRY' : 'HEXCORE IS FURIOUS', 1.6);
+      FX.ring(b.x, b.y, '#ff2e63', 60, 420, 0.6, 3);
+      GRID.push(b.x, b.y, 420, 600);
+    }
+    b.spin = [0, 0.5, 0.85, 1.3][ph];
+    b.rot += b.spin * dt;
+
+    if (b.charge > 0) {
+      const prev = b.charge;
+      b.charge -= dt;
+      if (b.charge > 0.7) {
+        const d = Math.exp(-5 * dt);
+        b.vx *= d; b.vy *= d;
+        b.chargeDir = Math.atan2(PL.y - b.y, PL.x - b.x);
+      } else if (prev > 0.7) {
+        b.vx = Math.cos(b.chargeDir) * 780; b.vy = Math.sin(b.chargeDir) * 780;
+        AU.sfx('dash');
+        G.shake = Math.max(G.shake, 6);
+      }
+    } else {
+      b.orbit += dt * 0.25;
+      const tx = W / 2 + Math.cos(b.orbit) * 380, ty = H / 2 + Math.sin(b.orbit * 1.3) * 190;
+      steer(b, (tx - b.x) * 1.2, (ty - b.y) * 1.2, 1.5, dt);
+    }
+    b.x += b.vx * dt; b.y += b.vy * dt;
+    const m = this.ROUT;
+    let wall = false;
+    if (b.x < m) { b.x = m; b.vx = Math.abs(b.vx) * 0.6; wall = true; }
+    else if (b.x > W - m) { b.x = W - m; b.vx = -Math.abs(b.vx) * 0.6; wall = true; }
+    if (b.y < m) { b.y = m; b.vy = Math.abs(b.vy) * 0.6; wall = true; }
+    else if (b.y > H - m) { b.y = H - m; b.vy = -Math.abs(b.vy) * 0.6; wall = true; }
+    if (wall && b.charge > 0) { G.shake = Math.max(G.shake, 10); GRID.push(b.x, b.y, 300, 500); AU.sfx('boom'); b.charge = 0; }
+    GRID.push(b.x, b.y, 230, -520 * dt);
+
+    if (!PL.alive) return;          // hold fire while the player respawns
+
+    b.spiralSw -= dt;
+    if (b.spiralSw <= 0) { b.spiralOn = !b.spiralOn; b.spiralSw = b.spiralOn ? 3.2 : 1.8; }
+    if (b.spiralOn && b.charge <= 0) {
+      b.spiralT -= dt;
+      if (b.spiralT <= 0) {
+        b.spiralT = ph === 3 ? 0.1 : 0.13;
+        const arms = ph === 1 ? 2 : 3, sp = 190 + 15 * b.cycle;
+        for (let i = 0; i < arms; i++) {
+          const a = b.t * 1.9 + i * TAU / arms;
+          EB.spawn(b.x + Math.cos(a) * 62, b.y + Math.sin(a) * 62, Math.cos(a) * sp, Math.sin(a) * sp, 5);
+        }
+      }
+    }
+    b.burstT -= dt;
+    if (b.burstT <= 0) {
+      b.burstT = ph === 3 ? 1.8 : 2.6;
+      const base = Math.atan2(PL.y - b.y, PL.x - b.x);
+      for (let i = -2; i <= 2; i++) {
+        const a = base + i * 0.16;
+        EB.spawn(b.x + Math.cos(a) * 62, b.y + Math.sin(a) * 62, Math.cos(a) * 300, Math.sin(a) * 300, 7);
+      }
+      AU.sfx('eshot');
+    }
+    if (ph >= 2) {
+      b.ringT -= dt;
+      if (b.ringT <= 0) {
+        b.ringT = 4.2;
+        const off = rand(0, TAU);
+        for (let i = 0; i < 26; i++) {
+          const a = off + i * TAU / 26;
+          EB.spawn(b.x + Math.cos(a) * 62, b.y + Math.sin(a) * 62, Math.cos(a) * 170, Math.sin(a) * 170, 7);
+        }
+        FX.ring(b.x, b.y, '#ff5f6d', 40, 200, 0.4, 2);
+      }
+      b.minionT -= dt;
+      if (b.minionT <= 0) {
+        b.minionT = 5.5;
+        for (let i = 0; i < 3; i++) spawnEnemy(pick(['seeker', 'seeker', 'dodger']), b.x + rand(-160, 160), b.y + rand(-160, 160));
+      }
+    }
+    if (ph === 3) {
+      b.chargeT -= dt;
+      if (b.chargeT <= 0 && b.charge <= 0) { b.chargeT = 6; b.charge = 1.6; }
+    }
+  },
+
+  // returns true when the bullet was stopped by the boss
+  bulletHit(bl) {
+    const b = this.e;
+    if (!b || b.dying > 0) return false;
+    const ox = bl.x - b.x, oy = bl.y - b.y, d = Math.hypot(ox, oy);
+    if (d > this.ROUT) return false;
+    if (b.enter > 0) { FX.burst(bl.x, bl.y, '#ffa13d', 2, 150, 0.2); return true; }
+    if (d >= this.RIN) {
+      let a = Math.atan2(oy, ox) - b.rot;
+      a = ((a % TAU) + TAU) % TAU;
+      const seg = TAU / this.N, idx = Math.floor(a / seg), fr = a / seg - idx;
+      if (fr > 0.08 && fr < 0.92 && b.plates[idx] > 0) {
+        b.plates[idx]--;
+        FX.burst(bl.x, bl.y, '#ffa13d', 3, 180, 0.3);
+        if (b.plates[idx] <= 0) {
+          const pa = b.rot + (idx + 0.5) * seg, pr = (this.RIN + this.ROUT) / 2;
+          FX.explode(b.x + Math.cos(pa) * pr, b.y + Math.sin(pa) * pr, '#ffa13d', 1.2);
+          addScore(100 * G.mult);
+          AU.sfx('plate');
+          G.shake = Math.max(G.shake, 5);
+        } else AU.sfx('clink');
+        return true;
+      }
+      return false;                 // slipped through a gap
+    }
+    if (d < this.RCORE) {
+      b.hp -= 1;
+      b.flash = 0.05;
+      FX.burst(bl.x, bl.y, '#ff2e63', 3, 200, 0.3);
+      AU.sfx('hit');
+      if (b.hp <= 0) this.kill();
+      return true;
+    }
+    return false;
+  },
+
+  bombHit() {
+    const b = this.e;
+    if (!b || b.dying > 0 || b.enter > 0) return;
+    b.hp -= Math.ceil(b.max * 0.06);
+    for (let i = 0; i < this.N; i++) b.plates[i] = Math.max(0, b.plates[i] - 2);
+    b.flash = 0.3;
+    if (b.hp <= 0) this.kill();
+  },
+
+  touches(x, y, r) {
+    const b = this.e;
+    if (!b || b.dying > 0 || b.enter > 0) return false;
+    return dist2(x, y, b.x, b.y) < (this.ROUT - 12 + r) * (this.ROUT - 12 + r);
+  },
+
+  kill() {
+    const b = this.e;
+    b.hp = 0; b.dying = 2.4; b.charge = 0;
+    EB.clear(true);
+    for (const e of EN.list) if (e.alive) killEnemy(e, 'bomb');
+    AU.sfx('bossdie');
+    G.slow = 1.3; G.shake = 20;
+    GRID.push(b.x, b.y, 500, 900);
+  },
+
+  finish() {
+    const b = this.e;
+    FX.explode(b.x, b.y, '#ff2e63', 5);
+    FX.explode(b.x, b.y, '#ffa13d', 4);
+    FX.explode(b.x, b.y, '#ffffff', 3);
+    FX.ring(b.x, b.y, '#ffffff', 20, 900, 0.9, 4);
+    FX.ring(b.x, b.y, '#ff2e63', 10, 620, 1.1, 3);
+    GRID.push(b.x, b.y, 900, 1500);
+    G.flash = 0.7; G.shake = 28;
+    const pts = 5000 * b.cycle * G.mult;
+    addScore(pts);
+    FX.text(b.x, b.y - 70, fmt(pts), '#ffd36b', 30);
+    PK.geom(b.x, b.y, 40);
+    PK.power(b.x - 50, b.y, pick(['spread', 'rapid', 'pierce']));
+    PK.power(b.x + 50, b.y, 'bomb');
+    HUD.banner('HEXCORE DESTROYED', '+' + fmt(pts), 2.6);
+    AU.sfx('boom');
+    this.kills++;
+    this.clear();
+  },
+
+  draw() {
+    const b = this.e;
+    if (!b) return;
+    const Lc = b.flash > 0 ? this.Lw : this.Lc;
+    R.shape(Lc, SH.hex, b.x, b.y, -b.rot * 1.5, this.RCORE - 4);
+    R.shape(Lc, SH.hexIn, b.x, b.y, b.rot * 2, this.RCORE - 4);
+    R.circle(Lc, b.x, b.y, 12 + Math.sin(b.t * 6) * 3);
+    const seg = TAU / this.N, ri = this.RIN, ro = this.ROUT - 2;
+    for (let i = 0; i < this.N; i++) {
+      const hp = b.plates[i];
+      if (hp <= 0) continue;
+      const a0 = b.rot + i * seg + seg * 0.08, a1 = b.rot + (i + 1) * seg - seg * 0.08, am = (a0 + a1) / 2;
+      const pts = [
+        b.x + Math.cos(a0) * ri, b.y + Math.sin(a0) * ri,
+        b.x + Math.cos(a0) * ro, b.y + Math.sin(a0) * ro,
+        b.x + Math.cos(am) * (ro + 3), b.y + Math.sin(am) * (ro + 3),
+        b.x + Math.cos(a1) * ro, b.y + Math.sin(a1) * ro,
+        b.x + Math.cos(a1) * ri, b.y + Math.sin(a1) * ri
+      ];
+      R.poly(b.flash > 0.2 ? this.Lw : hp > b.pmax * 0.5 ? this.Lp : this.Lpd, pts, 0, 0, 0, 1, 1);
+    }
+    if (b.charge > 0.7) {
+      const c = Math.cos(b.chargeDir), s = Math.sin(b.chargeDir);
+      R.line(EN.Lwarn, b.x + c * 110, b.y + s * 110, b.x + c * 1400, b.y + s * 1400);
+      R.line(EN.Lwarn, b.x + c * 110 - s * 80, b.y + s * 110 + c * 80, b.x + c * 1400 - s * 80, b.y + s * 1400 + c * 80);
+      R.line(EN.Lwarn, b.x + c * 110 + s * 80, b.y + s * 110 - c * 80, b.x + c * 1400 + s * 80, b.y + s * 1400 - c * 80);
+    }
+  }
+};
+
+// ===== 09_waves.js =====
+// ---------------------------------------------------------------------------
+// Wave director: builds each wave from a point budget, introduces new enemy
+// types one at a time, throws a swarm wave at 3/8/13..., a boss every 5th.
+// ---------------------------------------------------------------------------
+function weighted(types) {
+  let tot = 0;
+  for (const t of types) tot += ET[t].weight;
+  let r = Math.random() * tot;
+  for (const t of types) { r -= ET[t].weight; if (r <= 0) return t; }
+  return types[types.length - 1];
+}
+
+const WV = {
+  n: 0, queue: [], timer: 0, state: 'idle', breakT: 0, time: 0,
+
+  reset() { this.n = 0; this.queue = []; this.state = 'idle'; this.timer = 0; this.breakT = 0; },
+  unlocked(n) { return Object.keys(ET).filter(k => ET[k].min <= n && ET[k].weight > 0); },
+  fresh(n) { return Object.keys(ET).filter(k => ET[k].min === n); },
+
+  start(n) {
+    this.n = n; G.wave = n; this.time = 0;
+    G.diff = 1 + Math.min(0.75, (n - 1) * 0.045);
+    if (n % 5 === 0) {
+      this.state = 'boss';
+      this.queue = [];
+      HUD.banner('WAVE ' + n, 'WARNING: HEXCORE APPROACHING', 3);
+      AU.sfx('warn');
+      BOSS.start(n / 5);
+      MUS.level = 4; MUS.bpm = 134;
+      return;
+    }
+    const swarm = n % 5 === 3, fresh = n > 1 ? this.fresh(n) : [];
+    const sub = [swarm ? 'SWARM INCOMING' : '', fresh.length ? 'NEW ENEMY: ' + ET[fresh[0]].name : ''].filter(Boolean).join('  +  ');
+    HUD.banner('WAVE ' + n, sub || (n === 1 ? 'GET READY' : ''), 2.2);
+    this.queue = this.plan(n, swarm, fresh);
+    this.timer = 1.4;
+    this.state = 'spawning';
+    MUS.level = n < 3 ? 1 : n < 6 ? 2 : 3;
+    MUS.bpm = 126 + Math.min(6, Math.floor(n / 2));
+    AU.sfx('wave');
+  },
+
+  plan(n, swarm, fresh) {
+    let budget = Math.round((12 + n * 6.5) * (swarm ? 1.5 : 1));
+    let types = this.unlocked(n);
+    if (swarm) types = types.filter(t => ET[t].cost <= 2);
+    const groups = [];
+    let wells = 0;
+    if (fresh.length) {
+      const t = fresh[0], solo = t === 'well' || t === 'snake' || t === 'turret';
+      const c = solo ? 1 : 3;
+      groups.push({ type: t, pattern: solo ? 'scatter' : 'cluster', count: c, delay: 0 });
+      budget -= ET[t].cost * c;
+      if (t === 'well') wells++;
+    }
+    let guard = 0;
+    while (budget > 0 && guard++ < 80) {
+      const t = weighted(types), d = ET[t];
+      if (t === 'well' && wells >= (n > 14 ? 2 : 1)) continue;
+      let pattern, count;
+      if (t === 'well' || t === 'turret' || t === 'snake') {
+        pattern = 'scatter';
+        count = t === 'well' ? 1 : randi(1, 2);
+        if (t === 'well') wells++;
+      } else {
+        pattern = swarm ? pick(['corners', 'line', 'corners']) : pick(['scatter', 'scatter', 'corners', 'ring', 'line', 'cluster']);
+        count = randi(3, 5 + Math.floor(n / 3));
+        if (pattern === 'corners') count = Math.max(4, count - count % 4);
+      }
+      count = Math.max(1, Math.min(count, Math.ceil(budget / d.cost)));
+      groups.push({ type: t, pattern, count, delay: rand(0.8, 2.1) * Math.max(0.4, 1 - n * 0.04) * (swarm ? 0.6 : 1) });
+      budget -= d.cost * count;
+    }
+    if (groups.length) groups[0].delay = 0;
+    return groups;
+  },
+
+  spawnGroup(g) {
+    const px = PL.alive ? PL.x : W / 2, py = PL.alive ? PL.y : H / 2;
+    const far = (x, y, r) => dist2(x, y, px, py) > r * r;
+    if (g.pattern === 'scatter') {
+      for (let i = 0; i < g.count; i++) {
+        let x, y, tries = 0;
+        do { x = rand(70, W - 70); y = rand(70, H - 70); } while (!far(x, y, 300) && ++tries < 40);
+        spawnEnemy(g.type, x, y, { spawn: 0.75 + i * 0.08 });
+      }
+    } else if (g.pattern === 'corners') {
+      const cs = [[60, 60], [W - 60, 60], [60, H - 60], [W - 60, H - 60]].filter(c => far(c[0], c[1], 300));
+      for (let i = 0; i < g.count; i++) {
+        const c = cs[i % cs.length];
+        spawnEnemy(g.type, c[0] + rand(-30, 30), c[1] + rand(-30, 30), { spawn: 0.75 + Math.floor(i / cs.length) * 0.22 });
+      }
+    } else if (g.pattern === 'ring') {
+      const off = rand(0, TAU);
+      for (let i = 0; i < g.count; i++) {
+        const a = off + i * TAU / g.count;
+        spawnEnemy(g.type, px + Math.cos(a) * 340, py + Math.sin(a) * 340, { spawn: 0.95 });
+      }
+    } else if (g.pattern === 'line') {
+      const sides = [[0, py], [1, H - py], [2, px], [3, W - px]].filter(s => s[1] > 260);
+      const side = sides.length ? pick(sides)[0] : 0;
+      for (let i = 0; i < g.count; i++) {
+        const f = (i + 0.5) / g.count;
+        const x = side === 0 || side === 1 ? f * W : side === 2 ? 50 : W - 50;
+        const y = side === 2 || side === 3 ? f * H : side === 0 ? 50 : H - 50;
+        spawnEnemy(g.type, x, y, { spawn: 0.75 + i * 0.05 });
+      }
+    } else {
+      let cx, cy, tries = 0;
+      do { cx = rand(150, W - 150); cy = rand(130, H - 130); } while (!far(cx, cy, 420) && ++tries < 40);
+      for (let i = 0; i < g.count; i++) {
+        const a = rand(0, TAU), r = rand(0, 70);
+        spawnEnemy(g.type, cx + Math.cos(a) * r, cy + Math.sin(a) * r, { spawn: 0.75 + i * 0.06 });
+      }
+    }
+  },
+
+  update(dt) {
+    this.time += dt;
+    if (this.state === 'spawning') {
+      this.timer -= dt;
+      const alive = EN.alive();
+      if (alive > 90) this.timer = Math.max(this.timer, 0.3);
+      else if (alive === 0 && this.timer > 0.6) this.timer = 0.6;
+      if (this.timer <= 0 && this.queue.length) {
+        this.spawnGroup(this.queue.shift());
+        this.timer = this.queue.length ? this.queue[0].delay : 0;
+      }
+      if (!this.queue.length) this.state = 'clearing';
+    } else if (this.state === 'clearing') {
+      const alive = EN.alive();
+      if (alive === 0 || (alive <= 2 && this.time > 12)) this.clear();
+    } else if (this.state === 'boss') {
+      if (!BOSS.e && EN.alive() === 0) this.clear();
+    } else if (this.state === 'break') {
+      this.breakT -= dt;
+      if (this.breakT <= 0) this.start(this.n + 1);
+    }
+  },
+
+  clear() {
+    const bonus = 1000 * this.n;
+    addScore(bonus);
+    if (this.n % 5 !== 0) HUD.banner('WAVE ' + this.n + ' CLEAR', '+' + fmt(bonus) + ' BONUS', 1.6);
+    AU.sfx('clear');
+    this.state = 'break';
+    this.breakT = this.n % 5 === 0 ? 3.0 : 1.4;
+    MUS.bpm = 126;
+  }
+};
+
+// ===== 10_hud.js =====
+// ---------------------------------------------------------------------------
+// HUD + overlay screens (text only changes the DOM when a value changes)
+// ---------------------------------------------------------------------------
+const HUD = {
+  cache: {}, bT: 0, bDur: 1, tT: 0, banOn: false, fpsOn: /fps|debug/.test(HASH),
+
+  init() {
+    this.score = $('hudScore'); this.best = $('hudBest'); this.wave = $('hudWave'); this.mult = $('hudMult');
+    this.lives = $('hudLives'); this.bombs = $('hudBombs'); this.bossFill = $('bossFill');
+    this.banG = $('banner'); this.banMain = $('bannerMain'); this.banSub = $('bannerSub');
+    this.toastEl = $('toast'); this.fpsEl = $('fps');
+    show(this.fpsEl, this.fpsOn);
+    this.powEls = {};
+    let x = 0;
+    for (const k of ['spread', 'rapid', 'pierce', 'shield']) {
+      const g = el('g', { transform: 'translate(' + x + ' 916)', display: 'none' }, $('powBar'));
+      const t = el('text', { x: 0, y: 0, class: 'hudSmall', style: 'fill:' + PU[k].c }, g);
+      t.textContent = PU[k].name;
+      el('rect', { x: 0, y: 6, width: 150, height: 5, fill: 'none', stroke: PU[k].c, 'stroke-width': 1, opacity: 0.45 }, g);
+      const bar = el('rect', { x: 0, y: 6, width: 150, height: 5, fill: PU[k].c }, g);
+      this.powEls[k] = { g, bar, on: false };
+      x += 185;
+    }
+  },
+
+  set(key, elm, val) {
+    if (this.cache[key] !== val) { this.cache[key] = val; elm.textContent = val; }
+  },
+
+  update(dt) {
+    this.set('score', this.score, fmt(G.score));
+    this.set('best', this.best, 'BEST ' + fmt(Math.max(G.best, G.score)));
+    this.set('wave', this.wave, 'WAVE ' + G.wave);
+    this.set('mult', this.mult, 'x' + fmt(G.mult));
+    if (this.cache.lives !== G.lives) {
+      this.cache.lives = G.lives;
+      const tmp = { s: '' };
+      for (let i = 0; i < Math.min(G.lives, 9); i++) R.shape(tmp, [SH.ship[0]], W - 12 - i * 30, -48, -Math.PI / 2, 11);
+      this.lives.setAttribute('d', tmp.s);
+    }
+    if (this.cache.bombs !== G.bombs) {
+      this.cache.bombs = G.bombs;
+      const tmp = { s: '' };
+      for (let i = 0; i < Math.min(G.bombs, 9); i++) {
+        const x = W - 12 - i * 26, y = -18;
+        R.circle(tmp, x, y, 8);
+        R.line(tmp, x - 3.5, y, x + 3.5, y);
+        R.line(tmp, x, y - 3.5, x, y + 3.5);
+      }
+      this.bombs.setAttribute('d', tmp.s);
+    }
+    for (const k in this.powEls) {
+      const p = this.powEls[k], v = PL.pw[k], on = v > 0 && G.state !== 'title';
+      if (p.on !== on) { p.on = on; show(p.g, on); }
+      if (on) p.bar.setAttribute('width', r1(150 * Math.min(1, v / PU[k].dur)));
+    }
+    if (BOSS.e) this.bossFill.setAttribute('width', r1(596 * Math.max(0, BOSS.e.hp / BOSS.e.max)));
+
+    if (this.bT > 0) {
+      this.bT -= dt;
+      const el2 = this.bDur - this.bT, fin = Math.min(1, el2 / 0.25), fout = Math.max(0, Math.min(1, this.bT / 0.45));
+      const s = 1 + (1 - fin) * 0.35;
+      this.banG.setAttribute('opacity', Math.min(fin, fout).toFixed(2));
+      this.banG.setAttribute('transform', 'translate(800 420) scale(' + s.toFixed(3) + ') translate(-800 -420)');
+      this.banOn = true;
+    } else if (this.banOn) { this.banOn = false; this.banG.setAttribute('opacity', 0); }
+
+    if (this.tT > 0) {
+      this.tT -= dt;
+      this.toastEl.setAttribute('opacity', Math.max(0, Math.min(1, this.tT * 2)).toFixed(2));
+    }
+  },
+
+  banner(main, sub, dur) {
+    this.banMain.textContent = main || ' ';
+    this.banSub.textContent = sub || ' ';
+    this.bT = this.bDur = dur || 2;
+  },
+
+  toast(msg) {
+    this.toastEl.textContent = msg;
+    this.tT = 1.8;
+    this.toastEl.setAttribute('opacity', 1);
+  },
+
+  settingsLine() {
+    return 'SOUND ' + (SET.mute ? 'OFF' : 'ON') + '   ·   MUSIC ' + (SET.music ? 'ON' : 'OFF') +
+      '   ·   QUALITY ' + qualityLabel() + '   ·   AUTOFIRE ' + (SET.autofire ? 'ON' : 'OFF');
+  },
+
+  showTitle() {
+    show($('ovTitle'), true); show($('hud'), false); show($('ovOver'), false); show($('ovPause'), false);
+    show($('reticle'), false); show($('bossBar'), false);
+    $('titleBest').textContent = G.best > 0 ? 'HIGH SCORE ' + fmt(G.best) + '   ·   BEST WAVE ' + G.bestWave : ' ';
+    svg.classList.remove('playing');
+  },
+  showPlay() {
+    show($('ovTitle'), false); show($('hud'), true); show($('ovOver'), false); show($('ovPause'), false);
+    svg.classList.add('playing');
+  },
+  showPause(on) {
+    show($('ovPause'), on);
+    $('pauseInfo').textContent = this.settingsLine();
+    if (on) svg.classList.remove('playing'); else svg.classList.add('playing');
+  },
+  showOver() {
+    show($('ovOver'), true); show($('reticle'), false); show($('bossBar'), false);
+    svg.classList.remove('playing');
+    $('overScore').textContent = fmt(G.score);
+    const ob = $('overBest');
+    ob.textContent = G.newBest ? 'NEW HIGH SCORE!' : 'HIGH SCORE ' + fmt(G.best);
+    ob.setAttribute('style', G.newBest ? 'fill:#ffd36b' : '');
+    const acc = G.shots ? Math.round(100 * G.hits / G.shots) : 0;
+    const t = Math.floor(G.playTime), mm = Math.floor(t / 60), ss = t % 60;
+    $('overStats').textContent = 'REACHED WAVE ' + G.wave + '   ·   ' + fmt(G.kills) + ' KILLS   ·   MAX MULTIPLIER x' + fmt(G.maxMult);
+    $('overStats2').textContent = 'ACCURACY ' + acc + '%   ·   SURVIVED ' + mm + ':' + (ss < 10 ? '0' : '') + ss;
+  }
+};
+
+// ===== 11_main.js =====
+// ---------------------------------------------------------------------------
+// Game flow: states, collisions, bombs, death, quality control, main loop
+// ---------------------------------------------------------------------------
+let START_WAVE = 1;
+const QA = { avg: 16.7, cool: 2, autoQ: 'high' };
+
+function qualityLabel() {
+  return SET.quality === 'auto' ? 'AUTO/' + R.quality.toUpperCase() : SET.quality.toUpperCase();
+}
+function applyQuality() { R.setQuality(SET.quality === 'auto' ? QA.autoQ : SET.quality); }
+function cycleQuality() {
+  const order = ['auto', 'high', 'med', 'low'];
+  SET.quality = order[(order.indexOf(SET.quality) + 1) % order.length];
+  saveSettings();
+  QA.autoQ = 'high'; QA.cool = 3; QA.avg = 16.7;
+  applyQuality();
+  HUD.toast('QUALITY: ' + qualityLabel());
+}
+function autoQuality(ft) {
+  QA.avg += (ft - QA.avg) * 0.05;
+  if (SET.quality !== 'auto' || G.state !== 'play') return;
+  if (QA.cool > 0) { QA.cool -= ft / 1000; return; }
+  if (QA.avg > 24 && R.quality !== 'low') {
+    QA.autoQ = R.quality === 'high' ? 'med' : 'low';
+    R.setQuality(QA.autoQ);
+    QA.cool = 4; QA.avg = 16.7;
+    HUD.toast('QUALITY: ' + qualityLabel() + '  (Q to change)');
+  }
+}
+
+function addScore(p) {
+  if (G.state !== 'play' && G.state !== 'dying') return;
+  G.score += Math.round(p);
+  if (G.score >= G.nextLife) {
+    G.nextLife = Math.round(G.nextLife * 2.5);
+    if (G.lives < 9) { G.lives++; AU.sfx('life'); HUD.toast('EXTRA LIFE!'); }
+  }
+  if (G.score >= G.nextBomb) {
+    G.nextBomb += 150000;
+    if (G.bombs < 9) { G.bombs++; HUD.toast('EXTRA BOMB!'); }
+  }
+}
+
+function newGame() {
+  Object.assign(G, {
+    state: 'play', score: 0, mult: 1, lives: 3, bombs: 3, kills: 0, shots: 0, hits: 0, maxMult: 1,
+    playTime: 0, nextLife: 100000, nextBomb: 75000, newBest: false, slow: 0, dieT: 0, flash: 0
+  });
+  EN.clear('silent'); PB.clear(); EB.clear(false); PK.clear(); BOSS.clear(); FX.clear();
+  PL.reset(); WV.reset();
+  HUD.cache = {};
+  HUD.showPlay();
+  MUS.paused = false;
+  AU.sfx('start');
+  GRID.push(W / 2, H / 2, 700, 900);
+  FX.ring(W / 2, H / 2, COL.player, 300, 10, 0.5, 2);
+  WV.start(START_WAVE);
+}
+
+function useBomb() {
+  if (G.bombs <= 0 || !PL.alive || G.state !== 'play') return;
+  G.bombs--;
+  AU.sfx('bomb');
+  G.flash = 0.45; G.shake = 18;
+  FX.ring(PL.x, PL.y, '#ffffff', 10, 1900, 0.8, 4);
+  FX.ring(PL.x, PL.y, '#7fdfff', 10, 1500, 1.0, 3);
+  GRID.push(PL.x, PL.y, 1000, 1500);
+  for (const e of EN.list) if (e.alive && e.doom == null) e.doom = Math.sqrt(dist2(e.x, e.y, PL.x, PL.y)) / 2000;
+  EB.clear(true);
+  BOSS.bombHit();
+  PL.inv = Math.max(PL.inv, 1.0);
+}
+
+function playerHit() {
+  if (!PL.alive || PL.inv > 0 || PL.pw.shield > 0 || G.state !== 'play') return;
+  PL.alive = false;
+  G.lives--;
+  G.mult = 1;
+  for (const k in PL.pw) PL.pw[k] = 0;
+  AU.sfx('death');
+  FX.explode(PL.x, PL.y, COL.player, 3);
+  FX.burst(PL.x, PL.y, COL.flame, 70, 650, 1.4);
+  FX.ring(PL.x, PL.y, '#ffffff', 10, 520, 0.6, 3);
+  GRID.push(PL.x, PL.y, 520, 1100);
+  G.shake = 24; G.flash = 0.5; G.slow = 0.6;
+  G.state = 'dying'; G.dieT = 2.2;
+  EN.clear('clear'); EB.clear(true); PB.clear();
+}
+
+function gameOver() {
+  G.state = 'over'; G.overT = performance.now();
+  if (G.score > G.best) { G.best = G.score; G.newBest = true; store.set('best', G.best); }
+  if (G.wave > G.bestWave) { G.bestWave = G.wave; store.set('bestWave', G.bestWave); }
+  if (BOSS.e) FX.explode(BOSS.e.x, BOSS.e.y, '#ff2e63', 3);
+  BOSS.clear(); EN.clear('clear'); EB.clear(true);
+  HUD.showOver();
+  MUS.level = 0; MUS.bpm = 126;
+}
+
+function pause(on) {
+  if (on) {
+    if (G.state !== 'play' && G.state !== 'dying') return;
+    G.prevState = G.state; G.state = 'pause';
+    MUS.paused = true;
+    HUD.showPause(true);
+  } else {
+    G.state = G.prevState;
+    MUS.paused = false;
+    HUD.showPause(false);
+  }
+}
+function onBlur() { if (G.state === 'play' || G.state === 'dying') pause(true); }
+document.addEventListener('visibilitychange', () => { if (document.hidden) onBlur(); });
+
+function quitToTitle() {
+  if (G.score > G.best) { G.best = G.score; store.set('best', G.best); }
+  G.state = 'title';
+  EN.clear('silent'); BOSS.clear(); PB.clear(); EB.clear(false); PK.clear(); FX.clear();
+  PL.alive = false;
+  MUS.paused = false; MUS.level = 0; MUS.bpm = 126;
+  HUD.showTitle();
+}
+
+function collide() {
+  for (const b of PB.list) {
+    if (!b.alive) continue;
+    if (BOSS.e && BOSS.bulletHit(b)) { b.alive = false; G.hits++; continue; }
+    for (const e of EN.list) {
+      if (!e.alive || e.spawn > 0 || e.doom != null || e === b.last) continue;
+      if (e.tail && !segCircle(b.px, b.py, b.x, b.y, e.x, e.y, e.r + 3)) {
+        let blocked = false;
+        for (const t of e.tail) if (segCircle(b.px, b.py, b.x, b.y, t.x, t.y, 9)) { blocked = true; break; }
+        if (blocked) { b.alive = false; FX.burst(b.x, b.y, e.d.color, 3, 150, 0.25); AU.sfx('clink'); break; }
+        continue;
+      }
+      if (segCircle(b.px, b.py, b.x, b.y, e.x, e.y, e.r + 3)) {
+        G.hits++;
+        damageEnemy(e, 1);
+        if (b.pierce > 0) { b.pierce--; b.last = e; } else { b.alive = false; break; }
+      }
+    }
+  }
+  if (!PL.alive) return;
+  const shield = PL.pw.shield > 0;
+  for (const e of EN.list) {
+    if (!e.alive || e.spawn > 0 || e.doom != null) continue;
+    const rr = e.r * 0.8 + PL.hitR + (shield ? 20 : 0);
+    if (dist2(e.x, e.y, PL.x, PL.y) < rr * rr) {
+      if (shield) { killEnemy(e, 'shot'); continue; }
+      playerHit(); return;
+    }
+    if (e.tail && !shield) {
+      for (const t of e.tail) if (dist2(t.x, t.y, PL.x, PL.y) < (8 + PL.hitR) * (8 + PL.hitR)) { playerHit(); return; }
+    }
+  }
+  if (BOSS.touches(PL.x, PL.y, PL.hitR + (shield ? 20 : 0))) {
+    if (shield) {
+      const ox = PL.x - BOSS.e.x, oy = PL.y - BOSS.e.y, d = Math.hypot(ox, oy) || 1;
+      PL.ex = ox / d * 900; PL.ey = oy / d * 900;
+      AU.sfx('clink');
+    } else { playerHit(); return; }
+  }
+  for (const b of EB.list) {
+    if (!b.alive) continue;
+    const rr = b.r + PL.hitR + (shield ? 22 : 0);
+    if (dist2(b.x, b.y, PL.x, PL.y) < rr * rr) {
+      if (shield) { b.alive = false; FX.burst(b.x, b.y, COL.ebullet, 4, 140, 0.3); }
+      else { playerHit(); return; }
+    }
+  }
+}
+
+function simulate(dt) {
+  if (G.state === 'play') { G.playTime += dt; WV.update(dt); }
+  EN.update(dt);
+  BOSS.update(dt);
+  PL.update(dt);
+  PB.update(dt);
+  EB.update(dt);
+  PK.update(dt);
+  if (G.state === 'play') collide();
+  if (G.state === 'dying') {
+    G.dieT -= dt;
+    if (G.dieT <= 0) {
+      if (G.lives > 0) { PL.respawn(); G.state = 'play'; }
+      else gameOver();
+    }
+  }
+}
+
+let attractT = 0;
+function attract(dt) {
+  attractT -= dt;
+  if (attractT <= 0) {
+    attractT = rand(0.45, 1.2);
+    const c = pick(['#3d8bff', '#2ef2ff', '#4dff6a', '#ff3dbb', '#ff7a2e', '#a46bff', '#ffcf3d', '#ff3355']);
+    FX.explode(rand(80, W - 80), rand(80, H - 80), c, rand(0.6, 1.7));
+  }
+  if (G.state === 'over') { PK.update(dt); EB.update(dt); }
+}
+
+function handleKeys() {
+  if (IN.hit('KeyM')) { AU.unlock(); AU.setMute(!SET.mute); HUD.toast('SOUND ' + (SET.mute ? 'OFF' : 'ON')); refreshPause(); }
+  if (IN.hit('KeyN')) { AU.setMusic(!SET.music); HUD.toast('MUSIC ' + (SET.music ? 'ON' : 'OFF')); refreshPause(); }
+  if (IN.hit('KeyQ')) { cycleQuality(); refreshPause(); }
+  if (IN.hit('KeyF')) {
+    SET.autofire = !SET.autofire; saveSettings();
+    HUD.toast('AUTOFIRE ' + (SET.autofire ? 'ON - always shooting toward the mouse' : 'OFF'));
+    refreshPause();
+  }
+  if (IN.hit('Backquote')) { HUD.fpsOn = !HUD.fpsOn; show(HUD.fpsEl, HUD.fpsOn); }
+  switch (G.state) {
+    case 'title':
+      if (ACT.start()) newGame();
+      break;
+    case 'play': case 'dying':
+      if (ACT.pause()) { pause(true); break; }
+      if (ACT.bomb()) useBomb();
+      break;
+    case 'pause':
+      if (ACT.pause() || IN.hit('Enter') || IN.hit('Mouse0')) pause(false);
+      else if (IN.hit('KeyX') || IN.hit('Backspace')) quitToTitle();
+      break;
+    case 'over':
+      if (performance.now() - G.overT > 700 && ACT.start()) newGame();
+      else if (IN.hit('Escape')) quitToTitle();
+      break;
+  }
+}
+function refreshPause() { if (G.state === 'pause') $('pauseInfo').textContent = HUD.settingsLine(); }
+
+let lastT = 0, frames = 0, fpsAcc = 0, fpsN = 0, shaking = false, flashOn = false, retShown = false;
+const shakeG = $('shake'), flashR = $('flash'), reticle = $('reticle');
+
+function render(dt) {
+  if (G.state !== 'pause') {
+    if (G.state !== 'title') { PK.draw(); EB.draw(); EN.draw(); BOSS.draw(); PB.draw(); PL.draw(); }
+    FX.draw();
+    R.end();
+    GRID.render();
+  }
+  const showRet = (G.state === 'play' || G.state === 'dying') && IN.aimSrc === 'mouse';
+  if (showRet) reticle.setAttribute('transform', 'translate(' + r1(IN.mx) + ' ' + r1(IN.my) + ')');
+  if (showRet !== retShown) { show(reticle, showRet); retShown = showRet; }
+  if (G.state !== 'pause') {
+    if (G.shake > 0.15) {
+      G.shake *= Math.exp(-9 * dt);
+      const s = Math.min(G.shake, 30);
+      shakeG.setAttribute('transform', 'translate(' + r1(rand(-s, s)) + ' ' + r1(rand(-s, s)) + ')');
+      shaking = true;
+    } else if (shaking) { shakeG.removeAttribute('transform'); shaking = false; G.shake = 0; }
+    if (G.flash > 0) {
+      G.flash = Math.max(0, G.flash - dt * 1.8);
+      flashR.setAttribute('opacity', (G.flash * 0.8).toFixed(3));
+      flashOn = true;
+    } else if (flashOn) { flashR.setAttribute('opacity', 0); flashOn = false; }
+  }
+  HUD.update(dt);
+}
+
+function frame(now) {
+  requestAnimationFrame(frame);
+  if (!lastT) lastT = now;
+  const ft = now - lastT;
+  lastT = now;
+  frames++;
+  let dt = ft / 1000;
+  if (dt > 0.25) dt = 0;                   // returning from a background tab
+  dt = Math.min(dt, 1 / 30);
+  if (ft < 250) autoQuality(ft);
+  fpsAcc += ft; fpsN++;
+  if (fpsAcc > 500) {
+    if (HUD.fpsOn) HUD.fpsEl.textContent = Math.round(1000 * fpsN / fpsAcc) + ' FPS · ' + R.quality.toUpperCase() + ' · ' + EN.alive() + ' ENEMIES';
+    fpsAcc = 0; fpsN = 0;
+  }
+  try {
+    IN.poll();
+    handleKeys();
+    const real = dt;
+    if (G.slow > 0) { G.slow -= dt; dt *= 0.35; }
+    if (G.state !== 'pause') {
+      G.time += dt;
+      if (G.state === 'play' || G.state === 'dying') simulate(dt);
+      else attract(dt);
+      FX.update(dt);
+      GRID.update(dt);
+    }
+    render(real);
+  } catch (err) {
+    if (window.console) console.error(err);
+  }
+  IN.endFrame();
+}
+
+function init() {
+  R.init(); GRID.init(); FX.init();
+  // layer order, bottom to top (particles are created later, so they land on top)
+  PK.init(); EB.init(); EN.init(); BOSS.init(); PB.init(); PL.init();
+  HUD.init();
+  const qm = /q=(low|med|high|auto)/.exec(HASH);
+  if (qm) SET.quality = qm[1];
+  const wm = /wave=(\d+)/.exec(HASH);
+  if (wm) START_WAVE = Math.max(1, Number(wm[1]));
+  PL.alive = false;
+  applyQuality();
+  show($('noJs'), false);
+  show($('startHint'), true);
+  HUD.showTitle();
+  updateCTM();
+  window.GS = { G, WV, EN, PL, PB, EB, PK, BOSS, R, GRID, FX, SET, IN, newGame, useBomb, playerHit, pause, spawnEnemy, frames: () => frames };
+  requestAnimationFrame(frame);
+}
+init();
+
+})();
+]]></script>
+</svg>
